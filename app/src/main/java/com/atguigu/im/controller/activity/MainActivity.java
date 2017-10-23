@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 import com.atguigu.im.R;
 import com.atguigu.im.controller.fragment.ChatFragment;
 import com.atguigu.im.controller.fragment.ContactListFragment;
+import com.atguigu.im.controller.fragment.KeyFragment;
 import com.atguigu.im.controller.fragment.SettingFragment;
 
 // 主页面
@@ -17,6 +18,7 @@ public class MainActivity extends FragmentActivity {
     private ChatFragment chatFragment;
     private ContactListFragment contactListFragment;
     private SettingFragment settingFragment;
+    private KeyFragment keyFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,11 @@ public class MainActivity extends FragmentActivity {
                 Fragment fragment = null;
 
                 switch (checkedId) {
+
+                    case R.id.rb_main_one:
+                        fragment = keyFragment;
+                        break;
+
                     // 会话列表页面
                     case R.id.rb_main_chat:
                         fragment = chatFragment;
@@ -49,8 +56,8 @@ public class MainActivity extends FragmentActivity {
                     case R.id.rb_main_contact:
                         fragment = contactListFragment;
                         break;
-
                     // 设置页面
+
                     case R.id.rb_main_setting:
                         fragment = settingFragment;
                         break;
@@ -62,7 +69,7 @@ public class MainActivity extends FragmentActivity {
         });
 
         // 默认选择会话列表页面
-        rg_main.check(R.id.rb_main_chat);
+        rg_main.check(R.id.rb_main_one);
     }
 
     // 实现fragment切换的方法
@@ -77,6 +84,7 @@ public class MainActivity extends FragmentActivity {
         chatFragment = new ChatFragment();
         contactListFragment = new ContactListFragment();
         settingFragment = new SettingFragment();
+        keyFragment = new KeyFragment();
     }
 
     private void initView() {

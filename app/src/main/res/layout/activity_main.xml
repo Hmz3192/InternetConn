@@ -16,6 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb_main_one"
+            style="@style/MainButtonStyle"
+            android:text="钥匙" />
 
         <RadioButton
             android:id="@+id/rb_main_chat"
