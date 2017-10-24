@@ -21,12 +21,13 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+    compile project(':easeui')
+    compile project(':scan')
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.github.clans:fab:1.6.0'
     compile 'com.android.support:recyclerview-v7:26.+'
-    compile project(':easeui')
     compile 'com.kyleduo.switchbutton:library:1.4.6'
-    compile project(':scan')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
 }

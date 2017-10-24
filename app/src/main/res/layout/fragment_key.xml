@@ -6,8 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@color/primary_dark"
-        android:layout_height="wrap_content"
+        android:background="@color/top_bar_normal_bg"
+        android:layout_height="46dp"
         android:id="@+id/relativeLayout">
         <TextView
             android:layout_width="wrap_content"
@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/sao"
             android:id="@+id/tv_sao"
-            android:paddingTop="20dp"
             android:paddingLeft="325dp"
+            android:layout_marginTop="10dp"
             />
 
     </RelativeLayout>

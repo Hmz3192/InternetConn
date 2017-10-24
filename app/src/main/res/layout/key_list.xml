@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="00001:"
                 android:id="@+id/tv_id"
@@ -37,7 +37,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="200dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
                     android:id="@+id/tv_name"

@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,15 +57,6 @@ public class KeyFragment extends BaseFragment {
             }
         });
 
-        recy.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-            @Override
-            public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-                contextMenu.add(0, ContextMenu.FIRST+1, 0, "删除");
-                contextMenu.add(1, ContextMenu.FIRST+1, 0, "删除");
-
-            }
-        });
-
     }
 
     private void procssData() {
@@ -89,38 +77,9 @@ public class KeyFragment extends BaseFragment {
         /*设置布局管理者*/
         recy.setLayoutManager(manager);
 
-        // 绑定listview和contextmenu
-        registerForContextMenu(recy);
-
-        recy.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-            @Override
-            public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-                contextMenu.add(0, ContextMenu.FIRST+1, 0, "编辑");
-                contextMenu.add(1, ContextMenu.FIRST+2, 0, "删除");
-
-            }
-        });
     }
 
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        if (item.getItemId() == ContextMenu.FIRST + 1) {
-            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-            //编辑
-            Toast.makeText(mcontext, "bianji" + menuInfo.position, Toast.LENGTH_SHORT).show();
-        }
-        if (item.getItemId() == ContextMenu.FIRST + 2) {
-            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-            //删除
-            Toast.makeText(mcontext, "删除" + menuInfo.position, Toast.LENGTH_SHORT).show();
-
-        }
-        return super.onContextItemSelected(item);
-
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

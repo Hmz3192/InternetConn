@@ -1,10 +1,12 @@
 package com.atguigu.im.model.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by ZJNU-Hmz on 2017/10/23.
  */
 
-public class KeyMes {
+public class KeyMes implements Serializable {
 
 
     String id;
