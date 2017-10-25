@@ -12,6 +12,24 @@ public class KeyMes implements Serializable {
     String id;
     String name;
     String state;
+    String user; //yonghu
+    String location;
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getId() {
         return id;
@@ -41,10 +59,11 @@ public class KeyMes implements Serializable {
 
     }
 
-    public KeyMes(String id, String name, String state) {
-
+    public KeyMes(String id, String name, String state, String user, String location) {
         this.id = id;
         this.name = name;
         this.state = state;
+        this.user = user;
+        this.location = location;
     }
 }

@@ -31,7 +31,7 @@ public class KeyFragment extends BaseFragment {
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
     private List<KeyMes> keyMes;
     private KeyAdapter adapter;
-    private FloatingActionButton add, get;
+    private FloatingActionButton add;
     private int postion;
     @Override
     public View initView() {
@@ -39,7 +39,6 @@ public class KeyFragment extends BaseFragment {
         tv_sao = view.findViewById(R.id.tv_sao);
         recy = view.findViewById(R.id.recy);
         add = view.findViewById(R.id.menu_add);
-        get = view.findViewById(R.id.menu_get);
         procssData();
 
         return view;
@@ -62,7 +61,7 @@ public class KeyFragment extends BaseFragment {
     private void procssData() {
         keyMes = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            keyMes.add(i, new KeyMes(i + "1x0001", "第一小区一单元一栋302门", "1"));
+            keyMes.add(i, new KeyMes(i + "1x0001", "第一小区一单元一栋302门", "1","xiaoming","location"));
 
         }
 

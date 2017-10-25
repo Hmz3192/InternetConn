@@ -67,14 +67,6 @@
             fab:fab_label="增加" />
 
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_get"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_size="mini"
-            fab:fab_colorRipple="@color/primary_dark"
-            fab:fab_colorNormal="@color/primary"
-            fab:fab_label="生成开门密码" />
     </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout >

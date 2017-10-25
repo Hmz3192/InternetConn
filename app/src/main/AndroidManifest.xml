@@ -69,7 +69,8 @@
         <activity android:name=".controller.activity.NewGroupActivity" />
         <activity android:name=".controller.activity.PickContactActivity" />
         <activity android:name=".controller.activity.GroupDetailActivity" />
-        <activity android:name=".controller.activity.DetailActivity"></activity>
+        <activity android:name=".controller.activity.DetailActivity" />
+        <activity android:name=".controller.activity.SeeRecordActivity"></activity>
     </application>
 
 </manifest>
