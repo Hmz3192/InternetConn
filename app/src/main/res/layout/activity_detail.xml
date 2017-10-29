@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/ll_layout"
-    tools:context="com.atguigu.im.controller.activity.DetailActivity">
+    >
 
     <RelativeLayout
         android:id="@+id/title"
@@ -102,6 +102,7 @@
                     android:textSize="20sp" />
 
                 <RelativeLayout
+                    android:id="@+id/rl_change"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -170,32 +171,32 @@
 
 
             <Button
+                android:id="@+id/bt_seeRec"
                 android:layout_width="260dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:background="#60b2f7"
-                android:id="@+id/bt_seeRec"
                 android:text="查  看  记  录"
 
                 />
 
-            <Button
-                android:id="@+id/chang_pass"
-                android:layout_width="260dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="#60b2f7"
-                android:text="修 改 手 势 密 码" />
+            <!--<Button-->
+                <!--android:id="@+id/chang_pass"-->
+                <!--android:layout_width="260dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="#60b2f7"-->
+                <!--android:text="修 改 密 码" />-->
 
             <Button
+                android:id="@+id/bt_genPass"
                 android:layout_width="260dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="#60b2f7"
-                android:id="@+id/bt_genPass"
                 android:text="生 成 开 门 密 码" />
 
 
@@ -206,6 +207,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/holo_red_light"
                 android:padding="5dp"
+                android:textColor="@color/black_deep"
                 android:text="删  除" />
 
         </LinearLayout>

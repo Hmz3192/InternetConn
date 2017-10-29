@@ -1,10 +1,13 @@
 package com.atguigu.im.controller.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -12,17 +15,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.atguigu.im.R;
 import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.utils.PasswordView;
-import com.atguigu.im.utils.TimePickerDialog;
 
-public class DetailActivity extends Activity implements View.OnClickListener,TimePickerDialog.TimePickerDialogInterface {
+public class DetailActivity extends Activity implements View.OnClickListener {
     private KeyMes keyMes;
-    private TextView tv_location, tv_name, tv_user;
+    private TextView tv_location,et, tv_name, tv_user;
     private ImageView la_back_user;
     private PopupWindow mPopupWindow;
     private View popupView;
@@ -31,9 +34,9 @@ public class DetailActivity extends Activity implements View.OnClickListener,Tim
     private PasswordView passwordView;
     private int time = 1;
     private Button bt_genPass;
-    private TimePickerDialog mTimePickerDialog;
-
-
+    private LayoutInflater inflater;
+    private View dialog;
+    private RelativeLayout rl_change;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,9 @@ public class DetailActivity extends Activity implements View.OnClickListener,Tim
         popupView = getLayoutInflater().inflate(R.layout.layout_popupwindow, null);
         passwordView = popupView.findViewById(R.id.view_pass);
         keyMes = (KeyMes) getIntent().getSerializableExtra("mes");
-        mTimePickerDialog = new TimePickerDialog(DetailActivity.this);
+
+        inflater = getLayoutInflater();
+
         initView();
         initData();
     }
@@ -116,17 +121,21 @@ public class DetailActivity extends Activity implements View.OnClickListener,Tim
         tv_location = findViewById(R.id.tv_location);
         tv_user = findViewById(R.id.tv_user);
         tv_name = findViewById(R.id.tv_name);
+        rl_change = findViewById(R.id.rl_change);
         la_back_user = findViewById(R.id.la_back_user);
-        chang_pass = findViewById(R.id.chang_pass);
+//        chang_pass = findViewById(R.id.chang_pass);
         ll_layout = findViewById(R.id.ll_layout);
         bt_seeRec = findViewById(R.id.bt_seeRec);
 
+        rl_change.setOnClickListener(this);
         la_back_user.setOnClickListener(this);
-        chang_pass.setOnClickListener(this);
+//        chang_pass.setOnClickListener(this);
         bt_seeRec.setOnClickListener(this);
         bt_genPass.setOnClickListener(this);
 
     }
+
+
 
     private void initWindows(int time) {
         mPopupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
@@ -187,10 +196,10 @@ public class DetailActivity extends Activity implements View.OnClickListener,Tim
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.chang_pass:
-                /*打开windows*/
-                initWindows(time);
-                break;
+//            case R.id.chang_pass:
+//                /*打开windows*/
+//                initWindows(time);
+//                break;
 
             case R.id.la_back_user:
                 finish();
@@ -201,21 +210,30 @@ public class DetailActivity extends Activity implements View.OnClickListener,Tim
                 startActivity(intent);
                 break;
             case R.id.bt_genPass:
-                mTimePickerDialog.showTimePickerDialog();
+                Intent intent1 = new Intent(this, GenPasswordActivity.class);
+                startActivity(intent1);
+
+                break;
+            case R.id.rl_change:
+                dialog = inflater.inflate(R.layout.layout_dialog1, (ViewGroup) findViewById(R.id.dialog));
+                et = dialog.findViewById(R.id.et);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("请输入新名称");
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(DetailActivity.this, et.getText().toString(), Toast.LENGTH_SHORT).show();
+                        tv_name.setText(et.getText().toString().trim());
+                    };
+                });
+                builder.setView(dialog);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.show();
+
                 break;
 
         }
 
     }
 
-    @Override
-    public void positiveListener() {
-        int hour = mTimePickerDialog.getHour();
-        int minute = mTimePickerDialog.getMinute();
-        Toast.makeText(this, ""+hour+":"+minute, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void negativeListener() {
-    }
 }

@@ -22,6 +22,9 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:name=".IMApplication"
@@ -30,7 +33,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.activity.MainActivity" />
+        <activity
+            android:name=".controller.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- 设置环信应用的AppKey -->
         <meta-data
@@ -53,7 +58,26 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-
+        <!-- 地图 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
+        <!-- 百度地图所需的service -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <!-- umeng appkey，可忽略 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56aefe07e0f55a250d001a7c" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="hyphenate" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
         <activity android:name=".controller.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,7 +94,13 @@
         <activity android:name=".controller.activity.PickContactActivity" />
         <activity android:name=".controller.activity.GroupDetailActivity" />
         <activity android:name=".controller.activity.DetailActivity" />
-        <activity android:name=".controller.activity.SeeRecordActivity"></activity>
+        <activity android:name=".controller.activity.SeeRecordActivity" />
+        <activity
+            android:name=".controller.activity.RegisterActivity"
+            android:theme="@style/Translucent" />
+        <activity android:name=".controller.activity.GenPasswordActivity" />
+        <activity android:name=".controller.activity.ChatManagerActivity" />
+        <activity android:name=".controller.activity.UserManagerActivity"></activity>
     </application>
 
 </manifest>

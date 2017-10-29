@@ -1,8 +1,12 @@
 package com.atguigu.im.controller.activity;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -17,11 +21,62 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 
 // 登录页面
-public class LoginAcitivity extends Activity {
+public class LoginAcitivity extends Activity implements View.OnClickListener {
     private EditText et_login_name;
     private EditText et_login_pwd;
-    private Button bt_login_regist;
-    private Button bt_login_login;
+    private CardView cv;
+    private Button btGo;
+    private FloatingActionButton fab;
+
+    /**
+     * Find the Views in the layout<br />
+     * <br />
+     * Auto-created on 2017-10-28 10:55:26 by Android Layout Finder
+     * (http://www.buzzingandroid.com/tools/android-layout-finder)
+     */
+    private void findViews() {
+        cv = (CardView)findViewById( R.id.cv );
+        et_login_name = (EditText)findViewById( R.id.et_login_name );
+        et_login_pwd = (EditText)findViewById( R.id.et_login_pwd );
+        btGo = (Button)findViewById( R.id.bt_go );
+        fab = (FloatingActionButton)findViewById( R.id.fab );
+
+        btGo.setOnClickListener( this );
+        fab.setOnClickListener( this );
+    }
+
+    /**
+     * Handle button click events<br />
+     * <br />
+     * Auto-created on 2017-10-28 10:55:26 by Android Layout Finder
+     * (http://www.buzzingandroid.com/tools/android-layout-finder)
+     */
+    @Override
+    public void onClick(View v) {
+        if ( v == btGo ) {
+            // Handle clicks for btGo
+            login();
+        } else if ( v == fab ) {
+            // Handle clicks for fab
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getWindow().setExitTransition(null);
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getWindow().setEnterTransition(null);
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ActivityOptions options =
+                        ActivityOptions.makeSceneTransitionAnimation(this, fab, fab.getTransitionName());
+                startActivity(new Intent(this, RegisterActivity.class), options.toBundle());
+            } else {
+                startActivity(new Intent(this, RegisterActivity.class));
+            }
+
+        }
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,28 +85,27 @@ public class LoginAcitivity extends Activity {
         setContentView(R.layout.activity_login_acitivity);
 
         // 初始化控件
-        initView();
-
+        findViews();
         // 初始化监听
         initListener();
     }
 
     private void initListener() {
         // 注册按钮的点击事件处理
-        bt_login_regist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                regist();
-            }
-        });
+//        bt_login_regist.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                regist();
+//            }
+//        });
 
         // 登录按钮的点击事件处理
-        bt_login_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
+//        bt_login_login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                login();
+//            }
+//        });
     }
 
     // 登录按钮的页面逻辑处理
@@ -160,10 +214,4 @@ public class LoginAcitivity extends Activity {
         });
     }
 
-    private void initView() {
-        et_login_name = (EditText)findViewById(R.id.et_login_name);
-        et_login_pwd = (EditText)findViewById(R.id.et_login_pwd);
-        bt_login_regist = (Button)findViewById(R.id.bt_login_regist);
-        bt_login_login = (Button)findViewById(R.id.bt_login_login);
-    }
 }

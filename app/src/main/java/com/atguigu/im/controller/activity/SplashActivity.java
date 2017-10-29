@@ -83,4 +83,7 @@ public class SplashActivity extends Activity {
         // 销毁消息
         handler.removeCallbacksAndMessages(null);
     }
+
+
+
 }

@@ -1,71 +1,68 @@
 package com.atguigu.im.controller.fragment;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.atguigu.im.R;
-import com.atguigu.im.controller.adapter.KeyAdapter;
+import com.atguigu.im.controller.activity.DetailActivity;
 import com.atguigu.im.model.bean.KeyMes;
-import com.github.clans.fab.FloatingActionButton;
-import com.zjnu.thinkpad.myapplication.android.CaptureActivity;
+import com.atguigu.im.utils.PasswordView;
+import com.kyleduo.switchbutton.SwitchButton;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by ZJNU-Hmz on 2017/10/10.
  */
 
 public class KeyFragment extends BaseFragment {
-    private TextView tv_sao;
     private RecyclerView recy;
-    private static final int REQUEST_CODE_SCAN = 0x0000;
-    private static final String DECODED_CONTENT_KEY = "codedContent";
-    private static final String DECODED_BITMAP_KEY = "codedBitmap";
+
     private List<KeyMes> keyMes;
     private KeyAdapter adapter;
-    private FloatingActionButton add;
     private int postion;
+    private PasswordView passwordView;
+    private KeyAdapter.ViewHolder viewHolder;
+
     @Override
     public View initView() {
         View view = View.inflate(mcontext, R.layout.fragment_key, null);
-        tv_sao = view.findViewById(R.id.tv_sao);
         recy = view.findViewById(R.id.recy);
-        add = view.findViewById(R.id.menu_add);
+
+
+
         procssData();
 
         return view;
     }
 
+
+
     @Override
     public void initData() {
         super.initData();
-        tv_sao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(),
-                        CaptureActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_SCAN);
-            }
-        });
 
     }
 
     private void procssData() {
         keyMes = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            keyMes.add(i, new KeyMes(i + "1x0001", "第一小区一单元一栋302门", "1","xiaoming","location"));
+        for (int i = 0; i < 4; i++) {
+            keyMes.add(i, new KeyMes(i + "1x0001", "第一小区一单元一栋302门", "1","xiaoming","location",i+"123"));
 
         }
-
-
         //设置适配器
         adapter = new KeyAdapter(mcontext, keyMes);
 
@@ -76,21 +73,161 @@ public class KeyFragment extends BaseFragment {
         /*设置布局管理者*/
         recy.setLayoutManager(manager);
 
+
     }
 
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
-            if (data != null) {
 
-                String content = data.getStringExtra(DECODED_CONTENT_KEY);
-                Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
-                Toast.makeText(mcontext, "解码结果： \n" + content, Toast.LENGTH_SHORT).show();
 
+
+
+
+
+    class KeyAdapter extends RecyclerView.Adapter {
+         private PopupWindow mPopupWindow;
+         private View popupView;
+        private final Context mcontext;
+        private List<KeyMes> datas;
+
+
+
+        public KeyAdapter(Context mcontext, List<KeyMes> keyMes) {
+            this.mcontext = mcontext;
+            this.datas = keyMes;
+
+
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            ViewHolder view = new ViewHolder(View.inflate(mcontext, R.layout.key_list, null));
+            popupView = getActivity().getLayoutInflater().inflate(R.layout.layout_popupwindow, null);
+            passwordView = popupView.findViewById(R.id.view_pass);
+            return view;
+
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+            viewHolder = (ViewHolder) holder;
+            viewHolder.tv_name.setText(datas.get(position).getName());
+            viewHolder.tv_id.setText(datas.get(position).getId());
+            viewHolder.LL_key.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mcontext, DetailActivity.class);
+                    intent.putExtra("mes",  datas.get(position));
+                    mcontext.startActivity(intent);
+                }
+            });
+
+            //开门
+            viewHolder.sb_default.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                Toast.makeText(mcontext, b ? "开":"关", Toast.LENGTH_SHORT).show();
+                    if (b) {
+                        initWindows();
+
+
+                    }
+                }
+            });
+            //密码输入完成
+            passwordView.setOnFinishInput(new PasswordView.OnPasswordInputFinish() {
+                @Override
+                public void inputFinish() {
+                    mPopupWindow.dismiss();
+                    WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+                    params.alpha = 1f;
+                    getActivity().getWindow().setAttributes(params);
+
+                    Toast.makeText(mcontext, "输入的密码是"+passwordView.getStrPassword()
+                            +"设置的密码"+ datas.get(position).getPassword(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+
+
+
+            viewHolder.LL_key.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    return false;
+                }
+            });
+
+        }
+
+         private void initWindows() {
+             mPopupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+             mPopupWindow.setTouchable(true);
+             mPopupWindow.setOutsideTouchable(true);
+//        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+             mPopupWindow.setAnimationStyle(R.style.anim_menu_bottombar);
+
+
+        /*阴影*/
+             WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+             params.alpha = 0.7f;
+             getActivity().getWindow().setAttributes(params);
+
+
+             mPopupWindow.getContentView().setFocusableInTouchMode(true);
+             mPopupWindow.getContentView().setFocusable(true);
+             mPopupWindow.showAtLocation(getView().findViewById(R.id.recy), Gravity.BOTTOM, 0, 0);
+
+             mPopupWindow.getContentView().setOnKeyListener(new View.OnKeyListener() {
+                 @Override
+                 public boolean onKey(View v, int keyCode, KeyEvent event) {
+                     if (keyCode == KeyEvent.KEYCODE_MENU && event.getRepeatCount() == 0
+                             && event.getAction() == KeyEvent.ACTION_DOWN) {
+                         if (mPopupWindow != null && mPopupWindow.isShowing()) {
+                             mPopupWindow.dismiss();
+                             WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+                             params.alpha = 1f;
+                             getActivity().getWindow().setAttributes(params);
+                         }
+                         return true;
+                     }
+                     return false;
+                 }
+             });
+         }
+
+         @Override
+        public int getItemCount() {
+            return datas.size();
+        }
+
+        class ViewHolder extends RecyclerView.ViewHolder {
+            private TextView tv_id, tv_name;
+            private LinearLayout LL_key;
+            private SwitchButton sb_default;
+            public ViewHolder(View itemView) {
+                super(itemView);
+                initView(itemView);
+            }
+
+
+            private void initView(View itemView) {
+                LL_key = itemView.findViewById(R.id.LL_key);
+                sb_default = itemView.findViewById(R.id.sb_default);
+                tv_id = itemView.findViewById(R.id.tv_id);
+                tv_name = itemView.findViewById(R.id.tv_name);
             }
         }
+
+
+
     }
+
+
+
+
+
+
 }

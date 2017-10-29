@@ -6,4 +6,6 @@
     <color name="accent">#448AFF</color>
     <color name="primary">#9fd1fb</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#fddedcdc</color>
 </resources>

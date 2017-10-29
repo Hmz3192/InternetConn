@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">测试IM</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="Username">账号</string>
+    <string name="Password">密码</string>
+    <string name="forgot_your_password">忘记了密码?</string>
+    <string name="go">登录</string>
+    <string name="repeat_password">再输入一遍</string>
+    <string name="next">注册</string>
+    <string name="register">注册</string>
+
+
+
+
 </resources>
