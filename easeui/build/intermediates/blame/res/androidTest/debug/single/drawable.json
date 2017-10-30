@@ -16,12 +16,12 @@
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_chat_press_speak_btn.xml"
     },
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_type_select_btn.xml",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_type_select_btn.xml"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_btn_cancel_normal_shape.xml",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_type_select_btn.xml",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_type_select_btn.xml"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_chat_send_btn_selector.xml",

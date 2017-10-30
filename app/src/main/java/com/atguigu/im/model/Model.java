@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.atguigu.im.model.bean.UserInfo;
 import com.atguigu.im.model.dao.UserAccountDao;
+import com.atguigu.im.model.dao.UserInfoDao;
 import com.atguigu.im.model.db.DBManager;
 
 import java.util.concurrent.ExecutorService;
@@ -20,6 +21,7 @@ public class Model {
     // 创建对象
     private static Model model = new Model();
     private UserAccountDao userAccountDao;
+    private UserInfoDao userInfoDao;
     private DBManager dbManager;
 
     // 私有化构造
@@ -40,6 +42,7 @@ public class Model {
         // 创建用户账号数据库的操作类对象
         userAccountDao = new UserAccountDao(mContext);
 
+        userInfoDao = new UserInfoDao(mContext);
         // 开启全局监听
         EventListener eventListener = new EventListener(mContext);
     }
@@ -71,5 +74,9 @@ public class Model {
     // 获取用户账号数据库的操作类对象
     public UserAccountDao getUserAccountDao(){
         return userAccountDao;
+    }
+
+    public UserInfoDao getUserInfoDao() {
+        return userInfoDao;
     }
 }

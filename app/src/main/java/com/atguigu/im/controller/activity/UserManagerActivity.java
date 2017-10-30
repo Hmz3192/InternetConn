@@ -11,7 +11,7 @@ import com.atguigu.im.R;
 
 public class UserManagerActivity extends Activity implements View.OnClickListener{
     private RelativeLayout title;
-    private ImageView laBackUser;
+    private ImageView la_back_user1;
     private ImageView userHeadAvatar;
     private ImageView userHeadHeadphotoUpdate;
     private TextView userHxid;
@@ -37,7 +37,7 @@ public class UserManagerActivity extends Activity implements View.OnClickListene
      */
     private void findViews() {
         title = (RelativeLayout)findViewById( R.id.title );
-        laBackUser = (ImageView)findViewById( R.id.la_back_user );
+        la_back_user1 = (ImageView)findViewById( R.id.la_back_user1 );
         userHeadAvatar = (ImageView)findViewById( R.id.user_head_avatar );
         userHeadHeadphotoUpdate = (ImageView)findViewById( R.id.user_head_headphoto_update );
         userHxid = (TextView)findViewById( R.id.user_hxid );
@@ -56,7 +56,7 @@ public class UserManagerActivity extends Activity implements View.OnClickListene
         icRightSig = (ImageView)findViewById( R.id.ic_right_sig );
 
 
-        laBackUser.setOnClickListener(this);
+        la_back_user1.setOnClickListener(this);
 
     }
 
@@ -69,7 +69,7 @@ public class UserManagerActivity extends Activity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.la_back_user:
+            case R.id.la_back_user1:
                 finish();
                 break;
 

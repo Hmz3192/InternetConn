@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:id="@+id/la_back_user"
+            android:id="@+id/la_back_user1"
             android:layout_marginLeft="11dp"
             android:layout_marginTop="10dp"
             android:scaleType="centerInside"
@@ -77,8 +77,10 @@
 
             />
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_horizontal"
             android:background="#ffffff"
             android:paddingBottom="10dip"
             android:paddingTop="10dp">
@@ -90,7 +92,7 @@
                 android:layout_margin="5dp"
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
-                android:text="商城账号"
+                android:text="账号"
                 android:textColor="#808080"
                 android:textSize="16sp" />
 
@@ -129,8 +131,10 @@
 
         <RelativeLayout
             android:id="@+id/rl_nickname"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
             android:background="#ffffff"
             android:paddingBottom="10dip"
             android:paddingTop="10dp">
@@ -165,7 +169,7 @@
                 android:layout_alignBottom="@+id/user_nickname"
                 android:layout_toLeftOf="@+id/user_nickname"
                 android:layout_toStartOf="@+id/user_nickname"
-                android:text="humingzhi123456" />
+                android:text="humingzhi123456111" />
 
             <ImageView
                 android:id="@+id/ic_right_nick"
@@ -186,8 +190,11 @@
 
         <RelativeLayout
             android:id="@+id/rl_sex"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            android:layout_gravity="center_horizontal"
             android:background="#ffffff"
             android:paddingBottom="10dip"
             android:paddingTop="10dp">
@@ -200,16 +207,20 @@
                 android:layout_margin="5dp"
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
-                android:text="性别"
+                android:text="电话"
                 android:textColor="#808080"
                 android:textSize="16sp" />
+
             <TextView
+                android:id="@+id/tv_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="300dp"
-                android:id="@+id/tv_sex"
-                android:text="男" />
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/ic_right_sex"
+                android:layout_alignBottom="@+id/ic_right_sex"
+                android:layout_toStartOf="@+id/ic_right_sex"
+                android:text="155111172" />
 
             <ImageView
                 android:id="@+id/ic_right_sex"
@@ -220,6 +231,7 @@
                 android:layout_margin="5dip"
                 android:src="@drawable/em_ic_right_arrow" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
@@ -228,8 +240,10 @@
             />
         <RelativeLayout
             android:id="@+id/rl_sig"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_width="350dp"
+            android:layout_gravity="center_horizontal"
             android:background="#ffffff"
             android:paddingBottom="10dip"
             android:paddingTop="10dp">
@@ -242,13 +256,13 @@
                 android:layout_margin="5dp"
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
-                android:text="个性签名"
+                android:text="邮箱"
                 android:textColor="#808080"
                 android:textSize="16sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="日子是多么么多"
+                android:text="1134598796@qq.com"
                 android:id="@+id/tv_sig"
                 android:layout_marginRight="10dp"
                 android:layout_alignBottom="@+id/textView4"

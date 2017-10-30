@@ -25,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:id="@+id/username"
         android:text="用户名"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

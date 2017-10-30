@@ -76,36 +76,36 @@
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_mm_title_remove.png"
     },
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_appitem_del_btn_normal.png"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_record_animate_12.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_record_animate_12.png"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_appitem_del_btn_normal.png",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_appitem_del_btn_normal.png"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_search_clear_normal.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_search_clear_normal.png"
     },
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_chat_video_mask_to.9.png"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_video_play_btn_small_nor.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_video_play_btn_small_nor.png"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_chat_video_mask_to.9.png",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_chat_video_mask_to.9.png"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_record_animate_09.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_record_animate_09.png"
     },
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_21.png",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ee_21.png"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_35.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ee_35.png"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_21.png",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ee_21.png"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_app_panel_video_icon.9.png",

@@ -23,6 +23,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':easeui')
     compile project(':scan')
+    compile 'com.zhy:okhttputils:2.6.2'
 
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:support-v4:26.0.0-alpha1'

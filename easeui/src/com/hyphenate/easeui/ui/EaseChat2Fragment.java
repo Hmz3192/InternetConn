@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -27,6 +28,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.hyphenate.EMChatRoomChangeListener;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.EMValueCallBack;
@@ -40,6 +42,7 @@ import com.hyphenate.chat.EMMessage.ChatType;
 import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.R;
+import com.hyphenate.easeui.bean.UserDetail;
 import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.easeui.domain.EaseEmojicon;
 import com.hyphenate.easeui.domain.EaseUser;
@@ -52,15 +55,20 @@ import com.hyphenate.easeui.widget.EaseChatExtendMenu;
 import com.hyphenate.easeui.widget.EaseChatInputMenu;
 import com.hyphenate.easeui.widget.EaseChatInputMenu.ChatInputMenuListener;
 import com.hyphenate.easeui.widget.EaseChatMessageList;
+import com.hyphenate.easeui.widget.EaseTitleBar;
 import com.hyphenate.easeui.widget.EaseVoiceRecorderView;
 import com.hyphenate.easeui.widget.EaseVoiceRecorderView.EaseVoiceRecorderCallback;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hyphenate.util.EMLog;
 import com.hyphenate.util.PathUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+
+import okhttp3.Call;
 
 
 /**
@@ -196,13 +204,14 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
         titleBar.setTitle(toChatUsername);
         if (chatType == EaseConstant.CHATTYPE_SINGLE) {
             // set title
-            if(EaseUserUtils.getUserInfo(toChatUsername) != null){
+           /* if(EaseUserUtils.getUserInfo(toChatUsername) != null){
                 EaseUser user = EaseUserUtils.getUserInfo(toChatUsername);
                 if (user != null) {
                     titleBar.setTitle(user.getNick());
                 }
-            }
-            titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
+            }*/
+            new MyThread(getActivity(), titleBar).start();
+//            titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
         } else {
             titleBar.setRightImageResource(R.drawable.ease_to_group_details_normal);
             if (chatType == EaseConstant.CHATTYPE_GROUP) {
@@ -1148,6 +1157,51 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
          * @return
          */
         EaseCustomChatRowProvider onSetCustomChatRowProvider();
+    }
+    public static class MyThread extends Thread {
+
+        //继承Thread类，并改写其run方法
+        private final static String TAG = "My Thread ===> ";
+        private final Context context;
+        private final EaseTitleBar titleBar;
+        private UserDetail userBean;
+
+        public MyThread(Context context, EaseTitleBar titleBar) {
+            this.context = context;
+            this.titleBar = titleBar;
+        }
+
+        public void run() {
+            Log.d(TAG, "run");
+            String url = "http://192.168.1.104:8080/IntelCd/getPic";
+            OkHttpUtils
+                    .get()
+                    .url(url)
+                    .addParams("hxid", toChatUsername)
+                    .build()
+                    .execute(new StringCallback() {
+
+                        @Override
+                        public void onError(Call call, Exception e, int id) {
+                            Log.i("info", "failed");
+                        }
+
+                        @Override
+                        public void onResponse(String response, int id) {
+                            processData(response);
+                        }
+
+                    });
+        }
+
+        private void processData(String response) {
+            userBean = JSON.parseObject(response, UserDetail.class);
+            titleBar.setTitle(userBean.getName());
+            titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
+
+
+        }
+
     }
 
 

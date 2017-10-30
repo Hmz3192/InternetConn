@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_type_select_btn.xml",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\ease_type_select_btn.xml"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_chat_takepic_selector.xml",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\ease_chat_takepic_selector.xml"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_type_select_btn.xml",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\ease_type_select_btn.xml"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_chat_press_speak_btn.xml",
@@ -20,12 +20,12 @@
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\ease_search_clear.xml"
     },
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\em_chat_video_call_selector.xml",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\em_chat_video_call_selector.xml"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_edit_text_bg.xml",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\ease_edit_text_bg.xml"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\em_chat_video_call_selector.xml",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable\\em_chat_video_call_selector.xml"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\em_camera_switch_selector.xml",

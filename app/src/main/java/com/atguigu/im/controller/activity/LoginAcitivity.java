@@ -1,16 +1,22 @@
 package com.atguigu.im.controller.activity;
 
 import android.app.Activity;
-import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.CardView;
+import android.support.annotation.IdRes;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.atguigu.im.R;
@@ -22,33 +28,77 @@ import com.hyphenate.exceptions.HyphenateException;
 
 // 登录页面
 public class LoginAcitivity extends Activity implements View.OnClickListener {
-    private EditText et_login_name;
-    private EditText et_login_pwd;
-    private CardView cv;
-    private Button btGo;
-    private FloatingActionButton fab;
 
+
+    private TextView tvMore;
+    private EditText etLoginName;
+    private EditText etLoginPwd;
+    private RadioGroup rgId;
+    private RadioButton rb1;
+    private RadioButton rb2;
+    private RadioButton rb3;
+    private Button btGo;
+    private Dialog mCameraDialog;
+    private int choice = 1;
+
+
+
+    private View.OnClickListener btnlistener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                // 注册
+                case R.id.btn_register:
+                    if (mCameraDialog != null) {
+                        mCameraDialog.dismiss();
+                    }
+
+                    Intent intent = new Intent(LoginAcitivity.this, RegisterActivity.class);
+                    startActivity(intent);
+                    break;
+//                忘记密码
+                case R.id.btn_forgetPass:
+                    if (mCameraDialog != null) {
+                        mCameraDialog.dismiss();
+                    }
+                    break;
+                // 取消
+                case R.id.btn_cancel:
+                    if (mCameraDialog != null) {
+                        mCameraDialog.dismiss();
+                    }
+                    break;
+            }
+        }
+    };
     /**
      * Find the Views in the layout<br />
      * <br />
-     * Auto-created on 2017-10-28 10:55:26 by Android Layout Finder
+     * Auto-created on 2017-10-30 12:20:38 by Android Layout Finder
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        cv = (CardView)findViewById( R.id.cv );
-        et_login_name = (EditText)findViewById( R.id.et_login_name );
-        et_login_pwd = (EditText)findViewById( R.id.et_login_pwd );
+        tvMore = (TextView)findViewById( R.id.tv_more );
+        etLoginName = (EditText)findViewById( R.id.et_login_name );
+        etLoginPwd = (EditText)findViewById( R.id.et_login_pwd );
+        rgId = (RadioGroup)findViewById( R.id.rg_id );
+        rb1 = (RadioButton)findViewById( R.id.rb1 );
+        rb2 = (RadioButton)findViewById( R.id.rb2 );
+        rb3 = (RadioButton)findViewById( R.id.rb3 );
         btGo = (Button)findViewById( R.id.bt_go );
-        fab = (FloatingActionButton)findViewById( R.id.fab );
 
+        tvMore.setOnClickListener(this);
+        rb1.setOnClickListener( this );
+        rb2.setOnClickListener( this );
+        rb3.setOnClickListener( this );
         btGo.setOnClickListener( this );
-        fab.setOnClickListener( this );
     }
 
     /**
      * Handle button click events<br />
      * <br />
-     * Auto-created on 2017-10-28 10:55:26 by Android Layout Finder
+     * Auto-created on 2017-10-30 12:20:38 by Android Layout Finder
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     @Override
@@ -56,26 +106,34 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
         if ( v == btGo ) {
             // Handle clicks for btGo
             login();
-        } else if ( v == fab ) {
-            // Handle clicks for fab
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setExitTransition(null);
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setEnterTransition(null);
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                ActivityOptions options =
-                        ActivityOptions.makeSceneTransitionAnimation(this, fab, fab.getTransitionName());
-                startActivity(new Intent(this, RegisterActivity.class), options.toBundle());
-            } else {
-                startActivity(new Intent(this, RegisterActivity.class));
-            }
-
+        } else if (v == tvMore) {
+            showBottomDia();
         }
     }
 
+    private void showBottomDia() {
+        mCameraDialog = new Dialog(LoginAcitivity.this, R.style.my_dialog);
+        LinearLayout root = (LinearLayout) LayoutInflater.from(LoginAcitivity.this).inflate(
+                R.layout.bottom_dialog_login, null);
+        root.findViewById(R.id.btn_register).setOnClickListener(btnlistener);
+        root.findViewById(R.id.btn_forgetPass).setOnClickListener(btnlistener);
+        root.findViewById(R.id.btn_cancel).setOnClickListener(btnlistener);
+        mCameraDialog.setContentView(root);
+        Window dialogWindow = mCameraDialog.getWindow();
+        dialogWindow.setGravity(Gravity.BOTTOM);
+        dialogWindow.setWindowAnimations(R.style.dialogstyle); // 添加动画
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes(); // 获取对话框当前的参数值
+        lp.x = 0; // 新位置X坐标
+        lp.y = -20; // 新位置Y坐标
+        lp.width = (int) getResources().getDisplayMetrics().widthPixels; // 宽度
+//      lp.height = WindowManager.LayoutParams.WRAP_CONTENT; // 高度
+//      lp.alpha = 9f; // 透明度
+        root.measure(0, 0);
+        lp.height = root.getMeasuredHeight();
+        lp.alpha = 9f; // 透明度
+        dialogWindow.setAttributes(lp);
+        mCameraDialog.show();
+    }
 
 
     @Override
@@ -106,13 +164,38 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
 //                login();
 //            }
 //        });
+
+
+        rgId.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                switch (i) {
+
+                    case R.id.rb1:
+                        choice = 1;
+                        break;
+
+                    // 会话列表页面
+                    case R.id.rb2:
+                        choice = 2;
+                        break;
+
+                    // 联系人列表页面
+                    case R.id.rb3:
+                        choice = 3;
+                        break;
+                }
+            }
+        });
+
+        rgId.check(R.id.rb1);
     }
 
     // 登录按钮的页面逻辑处理
     private void login() {
         // 1 获取输入的用户名和密码
-        final String loginName = et_login_name.getText().toString();
-        final String loginPwd = et_login_pwd.getText().toString();
+        final String loginName = etLoginName.getText().toString();
+        final String loginPwd = etLoginPwd.getText().toString();
 
         // 2 校验输入的用户名和密码
         if(TextUtils.isEmpty(loginName) || TextUtils.isEmpty(loginPwd)) {
@@ -176,8 +259,8 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
     // 注册的业务逻辑处理
     private void regist() {
         // 1 获取输入的用户名和密码
-        final String registName = et_login_name.getText().toString();
-        final String registPwd = et_login_pwd.getText().toString();
+        final String registName = etLoginName.getText().toString();
+        final String registPwd = etLoginPwd.getText().toString();
         
         // 2 校验输入的用户名和密码
         if(TextUtils.isEmpty(registName) || TextUtils.isEmpty(registPwd)) {

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_contact_list_normal.png",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_contact_list_normal.png"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_video_recorder_stop_btn.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_video_recorder_stop_btn.png"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_contact_list_normal.png",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-hdpi\\ease_contact_list_normal.png"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\em_icon_mute_on.png",

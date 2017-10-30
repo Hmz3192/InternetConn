@@ -24,12 +24,12 @@
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-xhdpi\\ease_chat_voice_call_self.png"
     },
     {
-        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ease_open_icon.png",
-        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-xhdpi\\ease_open_icon.png"
-    },
-    {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ease_chat_takepic_normal.png",
         "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-xhdpi\\ease_chat_takepic_normal.png"
+    },
+    {
+        "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ease_open_icon.png",
+        "source": "C:\\HMZ\\FreeProject\\IM\\easeui\\res\\drawable-xhdpi\\ease_open_icon.png"
     },
     {
         "merged": "C:\\HMZ\\FreeProject\\IM\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ease_close_icon.png",

@@ -46,6 +46,9 @@ dependencies {
     //release时需要把hyphenatechatsdk的依赖注释掉，sdk已经被打成jar包放在libs底下
     //compile project(':hyphenatechatsdk')
     compile fileTree(include: '*.jar', dir: 'libs')
+    compile  'com.alibaba:fastjson:1.1.59.android'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.zhy:okhttputils:2.6.2'
     compile files('libs/umeng-analytics-v5.2.4.jar')
 }

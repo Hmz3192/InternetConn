@@ -75,6 +75,9 @@ public class SplashActivity extends Activity {
 
         // 发送2s钟的延时消息
         handler.sendMessageDelayed(Message.obtain(),2000);
+
+
+
     }
 
     @Override

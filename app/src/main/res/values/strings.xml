@@ -9,8 +9,11 @@
     <string name="repeat_password">再输入一遍</string>
     <string name="next">注册</string>
     <string name="register">注册</string>
-
-
+    <string name="six_password" >六位操作密码</string>
+    <string name="ipnone">电话</string>
+    <string name="email" >邮箱</string>
+    <string name="validate_code">短信验证码</string>
+    <string name="idcard" >身份证号</string>
 
 
 </resources>
