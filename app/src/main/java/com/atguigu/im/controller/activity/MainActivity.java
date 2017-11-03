@@ -33,6 +33,7 @@ import com.atguigu.im.controller.fragment.KeyFragment;
 import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.utils.BitmapUtils;
+import com.atguigu.im.utils.Constant;
 import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
 import com.squareup.picasso.Picasso;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private LinearLayout right;
     private NavigationView left;
     private boolean isDrawer = false;
-    private TextView tv_sao, tv_add,username,textView;
+    private TextView tv_sao, tv_add, username, textView;
     private static final String DECODED_CONTENT_KEY = "codedContent";
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
     private DrawerLayout drawer;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        initMydata();
+        initMydata(user);
         menu = (View) navigationView.getHeaderView(0);
 //      初始化左边的上面三个
         icon = (ImageView) menu.findViewById(R.id.imageView_email);
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         initListener();
 
-        intiThree();
+
         right.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -107,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
-
 
 
     }
@@ -145,44 +145,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void initMydata() {
+    private void initMydata(final String user) {
+        final String url = Constant.GETONEINFO;
+
         Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
             @Override
             public void run() {
-                try {
+                OkHttpUtils
+                        .get()
+                        .url(url)
+                        .addParams("hxid", user)
+                        .build()
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(okhttp3.Call call, Exception e, int id) {
 
-                    Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            String url = "http://192.168.1.104:8080/IntelCd/getPic";
-                            OkHttpUtils
-                                    .get()
-                                    .url(url)
-                                    .addParams("hxid", user)
-                                    .build()
-                                    .execute(new StringCallback() {
+                            }
 
-
-                                        @Override
-                                        public void onError(okhttp3.Call call, Exception e, int id) {
-
-                                        }
-
-                                        @Override
-                                        public void onResponse(String response, int id) {
-                                            userBean = JSON.parseObject(response, UserDetail.class);
-                                            Log.e("++++++++++++++++++3", userBean.toString());
-
-                                            // 保存自己信息到本地数据库
-                                            Model.getInstance().getUserInfoDao().addAccount(userBean);
-                                        }
-                                    });
-                        }
-                    });
-                    // 校验
-                } catch (Exception e) {
-
-                }
+                            @Override
+                            public void onResponse(String response, int id) {
+                                userBean = JSON.parseObject(response, UserDetail.class);
+                                Log.e("++++++++++++++++++3", userBean.toString());
+                                // 保存自己信息到本地数据库
+                                Model.getInstance().getUserInfoDao().addAccount(userBean);
+                                intiThree();
+                            }
+                        });
+                // 校验
             }
         });
     }

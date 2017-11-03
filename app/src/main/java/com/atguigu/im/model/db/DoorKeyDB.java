@@ -12,7 +12,7 @@ import com.atguigu.im.model.dao.UserInfoTable;
 public class DoorKeyDB extends SQLiteOpenHelper {
     // 构造
     public DoorKeyDB(Context context) {
-        super(context, "my.db", null, 1);
+        super(context, "mykey.db", null, 1);
     }
 
     // 数据库创建的时候调用

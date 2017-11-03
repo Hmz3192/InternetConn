@@ -65,7 +65,7 @@ public class SeeRecordActivity extends Activity {
         for (int i = 0; i < 10; i++) {
             doorRecs.add(i,new DoorRec(i+"--0x111","2017.08.09 14:23:01","freekey解锁","freekey解锁1111111111111111111111111111111111111111"));
         }
-        tvRecoId.setText(keyMes.getId());
+        tvRecoId.setText(keyMes.getDoorId());
 
         laBackUser.setOnClickListener(new View.OnClickListener() {
             @Override
