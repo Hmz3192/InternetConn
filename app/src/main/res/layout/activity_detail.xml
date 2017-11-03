@@ -155,8 +155,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="官员小区一栋一单元301号门"
-                        android:textSize="15sp" />
+                        android:text="湖北省武汉市江岸区官园小区1栋1单元032门"
+                        android:textSize="13sp" />
 
 
                 </RelativeLayout>

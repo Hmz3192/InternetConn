@@ -3,6 +3,7 @@ package com.atguigu.im.model;
 import android.content.Context;
 
 import com.atguigu.im.model.bean.UserInfo;
+import com.atguigu.im.model.dao.DoorKeyDao;
 import com.atguigu.im.model.dao.UserAccountDao;
 import com.atguigu.im.model.dao.UserInfoDao;
 import com.atguigu.im.model.db.DBManager;
@@ -22,8 +23,10 @@ public class Model {
     private static Model model = new Model();
     private UserAccountDao userAccountDao;
     private UserInfoDao userInfoDao;
-    private DBManager dbManager;
+    private DoorKeyDao doorKeyDao;
 
+    private DBManager dbManager;
+    private String GlobalUser;
     // 私有化构造
     private Model() {
 
@@ -43,6 +46,8 @@ public class Model {
         userAccountDao = new UserAccountDao(mContext);
 
         userInfoDao = new UserInfoDao(mContext);
+
+        doorKeyDao = new DoorKeyDao(mContext);
         // 开启全局监听
         EventListener eventListener = new EventListener(mContext);
     }
@@ -65,8 +70,14 @@ public class Model {
         }
 
         dbManager = new DBManager(mContext, account.getName());
+        GlobalUser = account.getHxid();
+
     }
 
+
+    public String getGlobalUser() {
+        return this.GlobalUser;
+    }
     public DBManager getDbManager(){
         return dbManager;
     }
@@ -77,6 +88,12 @@ public class Model {
     }
 
     public UserInfoDao getUserInfoDao() {
+
         return userInfoDao;
+    }
+
+    public DoorKeyDao getDoorKeyDao() {
+
+        return doorKeyDao;
     }
 }

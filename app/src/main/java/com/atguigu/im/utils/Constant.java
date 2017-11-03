@@ -12,6 +12,8 @@ public class Constant {
     public static final String GROUP_ID = "group_id";// 群id
     public static final String EXIT_GROUP = "exit_group";// 退群广播
 
-    public static String GETONEINFO = "http://192.168.1.104:8080/IntelCd/getPic";
+    public static String GETONEINFO = "http://192.168.1.105:8080/IntelCd/getPic";
+
+    public static  String GETKETUSER = "http://192.168.1.105:8080/IntelCd/getKeyByUser";
 
 }

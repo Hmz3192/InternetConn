@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.atguigu.im.R;
+import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.utils.PasswordView;
 
@@ -52,9 +53,9 @@ public class DetailActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
-        tv_name.setText(keyMes.getName());
-        tv_location.setText(keyMes.getName());
-        tv_user.setText(keyMes.getId());
+        tv_name.setText(keyMes.getDoorName());
+        tv_location.setText(keyMes.getDoorLocation());
+        tv_user.setText(Model.getInstance().getUserInfoDao().getUserByHxId(Model.getInstance().getGlobalUser()).getName());
 
         //密码输入完成
         passwordView.setOnFinishInput(new PasswordView.OnPasswordInputFinish() {

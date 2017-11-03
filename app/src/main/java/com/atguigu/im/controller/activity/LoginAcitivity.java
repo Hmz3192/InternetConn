@@ -226,7 +226,6 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
 
                                 // 跳转到主页面
                                 Intent intent = new Intent(LoginAcitivity.this, MainActivity.class);
-
                                 startActivity(intent);
 
                                 finish();

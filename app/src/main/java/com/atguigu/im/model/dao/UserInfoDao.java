@@ -5,8 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.model.db.UserInfoDB;
-import com.hyphenate.easeui.bean.UserDetail;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ZJNU-Hmz on 2017/10/30.
@@ -69,5 +72,36 @@ public class UserInfoDao {
 
         // 返回数据
         return  userInfo;
+    }
+
+
+    // 根据环信id获取所有用户信息
+    public List<UserDetail> getUser() {
+        // 获取数据库对象
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+
+        // 执行查询语句
+        String sql = "select * from " + UserInfoTable.TAB_NAME ;
+        Cursor cursor = db.rawQuery(sql, null);
+        List<UserDetail> userInfos =    new ArrayList<>();
+        while (cursor.moveToNext()) {
+            UserDetail userInfo = new UserDetail();
+
+            // 封装对象
+            userInfo.setAccount(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_HXID)));
+            userInfo.setName(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_NAME)));
+            userInfo.setEmail(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_EMAIL)));
+            userInfo.setPicUrl(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PHOTO)));
+            userInfo.setIphone(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PHONE)));
+            userInfo.setSixPasswrod(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PASS)));
+            userInfos.add(userInfo);
+
+        }
+
+        // 关闭资源
+        cursor.close();
+
+        // 返回数据
+        return  userInfos;
     }
 }

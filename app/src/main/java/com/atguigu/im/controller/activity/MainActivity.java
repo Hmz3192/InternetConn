@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -30,16 +31,15 @@ import com.atguigu.im.controller.fragment.ChatFragment;
 import com.atguigu.im.controller.fragment.ContactListFragment;
 import com.atguigu.im.controller.fragment.KeyFragment;
 import com.atguigu.im.model.Model;
+import com.atguigu.im.model.bean.UserDetail;
+import com.atguigu.im.utils.BitmapUtils;
 import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
-import com.hyphenate.easeui.bean.UserDetail;
-import com.hyphenate.exceptions.HyphenateException;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zjnu.thinkpad.myapplication.android.CaptureActivity;
-
-import java.util.List;
 
 // 主页面
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,12 +59,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int REQUEST_CODE_SCAN = 0x0000;
     private UserDetail userBean;
     private ImageView icon;
+    private String user;
+    private View menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        user = EMClient.getInstance().getCurrentUser();
+        Log.e("++++++++++++++++++", user);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("我的钥匙包");
         setSupportActionBar(toolbar);
@@ -80,11 +85,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         initMydata();
-
+        menu = (View) navigationView.getHeaderView(0);
 //      初始化左边的上面三个
-        icon = navigationView.findViewById(R.id.imageView);
-        username = navigationView.findViewById(R.id.username);
-        textView = navigationView.findViewById(R.id.textView);
+        icon = (ImageView) menu.findViewById(R.id.imageView_email);
+        username = (TextView) menu.findViewById(R.id.username_email);
+        textView = (TextView) menu.findViewById(R.id.textView_email);
         initView();
 
         initData();
@@ -108,21 +113,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void intiThree() {
-        UserDetail userByHxId = Model.getInstance().getUserInfoDao().getUserByHxId(EMClient.getInstance().getCurrentUser());
+        UserDetail userByHxId = Model.getInstance().getUserInfoDao().getUserByHxId(user);
         username.setText(userByHxId.getName());
         textView.setText(userByHxId.getEmail());
         try {
-//                int avatarResId = Integer.parseInt(user.getAvatar());
-                   /* Glide.with(context)
-                            .load(userBean.getPhoto())
-                            .diskCacheStrategy( DiskCacheStrategy.NONE )//禁用磁盘缓存
-                            .skipMemoryCache( true )//跳过内存缓存
-                            .into(imageView);*/
-            Picasso.with(MainActivity.this)
-                    .load(userByHxId.getPicUrl())
-//                            .networkPolicy(NetworkPolicy.NO_CACHE)
-//                            .memoryPolicy(MemoryPolicy.NO_CACHE)//不加载缓存
-                    .into(icon);
+
+            Picasso.with(MainActivity.this).load(userByHxId.getPicUrl()).transform(new Transformation() {
+                @Override
+                public Bitmap transform(Bitmap bitmap) {
+                    //先对图片进行压缩
+//                Bitmap zoom = BitmapUtils.zoom(bitmap, DensityUtil.dip2px(mContext, 62), DensityUtil.dip2px(mContext, 62));
+                    Bitmap zoom = BitmapUtils.zoom(bitmap, 90, 90);
+                    //对请求回来的Bitmap进行圆形处理
+                    Bitmap ciceBitMap = BitmapUtils.circleBitmap(zoom);
+                    bitmap.recycle();//必须队更改之前的进行回收
+                    return ciceBitMap;
+                }
+
+                @Override
+                public String key() {
+                    return "";
+                }
+            }).into(icon);
+
         } catch (Exception e) {
             //use default avatar
             Glide.with(MainActivity.this)
@@ -133,49 +146,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initMydata() {
-        //        开一个线程从环信服务器获取所有好友
         Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    // 获取到所有的好友的环信id
-                    List<String> hxids = EMClient.getInstance().contactManager().getAllContactsFromServer();
-                    hxids.add(hxids.size() + 1, EMClient.getInstance().getCurrentUser());
-                    // 校验
-                    if (hxids != null && hxids.size() >= 0) {
-                        for (final String hxid : hxids) {
-                            //根据hxid获取的所有用户
-                            Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
-                                @Override
-                                public void run() {
-                                    String url = "http://192.168.1.104:8080/IntelCd/getPic";
-                                    OkHttpUtils
-                                            .get()
-                                            .url(url)
-                                            .addParams("hxid", hxid)
-                                            .build()
-                                            .execute(new StringCallback() {
+
+                    Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            String url = "http://192.168.1.104:8080/IntelCd/getPic";
+                            OkHttpUtils
+                                    .get()
+                                    .url(url)
+                                    .addParams("hxid", user)
+                                    .build()
+                                    .execute(new StringCallback() {
 
 
-                                                @Override
-                                                public void onError(okhttp3.Call call, Exception e, int id) {
+                                        @Override
+                                        public void onError(okhttp3.Call call, Exception e, int id) {
 
-                                                }
+                                        }
 
-                                                @Override
-                                                public void onResponse(String response, int id) {
-                                                    userBean = JSON.parseObject(response, UserDetail.class);
-                                                    // 保存好友信息到本地数据库
-                                                    Model.getInstance().getUserInfoDao().addAccount(userBean);
-                                                }
-                                            });
-                                }
-                            });
+                                        @Override
+                                        public void onResponse(String response, int id) {
+                                            userBean = JSON.parseObject(response, UserDetail.class);
+                                            Log.e("++++++++++++++++++3", userBean.toString());
 
+                                            // 保存自己信息到本地数据库
+                                            Model.getInstance().getUserInfoDao().addAccount(userBean);
+                                        }
+                                    });
                         }
-                    }
-                } catch (HyphenateException e) {
-                    e.printStackTrace();
+                    });
+                    // 校验
+                } catch (Exception e) {
+
                 }
             }
         });

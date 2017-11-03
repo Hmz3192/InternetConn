@@ -94,7 +94,7 @@ public class EaseUserUtils {
 
         public void run(){
             Log.d(TAG, "run");
-            String url = "http://192.168.1.104:8080/IntelCd/getPic";
+            String url = Constants.GetUserurl;
             OkHttpUtils
                     .get()
                     .url(url)
@@ -161,7 +161,7 @@ public class EaseUserUtils {
 
         public void run() {
             Log.d(TAG, "run");
-            String url = "http://192.168.1.104:8080/IntelCd/getPic";
+            String url = Constants.GetUserurl;
             OkHttpUtils
                     .get()
                     .url(url)

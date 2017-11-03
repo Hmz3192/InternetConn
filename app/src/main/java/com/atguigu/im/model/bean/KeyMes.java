@@ -1,6 +1,7 @@
 package com.atguigu.im.model.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by ZJNU-Hmz on 2017/10/23.
@@ -9,72 +10,98 @@ import java.io.Serializable;
 public class KeyMes implements Serializable {
 
 
-    String id;
-    String name;
-    String state;
-    String user; //yonghu
-    String location;
-    String password;
+    private Integer id;
 
-    public String getPassword() {
-        return password;
-    }
+    private Integer userId;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private String doorName;
 
-    public KeyMes(String id, String name, String state, String user, String location, String password) {
+    private String doorLocation;
+
+    private String doorId;
+
+    private Date addTime;
+
+    private String doorState;
+
+    private String doorKind;
+
+    public KeyMes(Integer id, Integer userId, String doorName, String doorLocation, String doorId, Date addTime, String doorState, String doorKind) {
         this.id = id;
-        this.name = name;
-        this.state = state;
-        this.user = user;
-        this.location = location;
-        this.password = password;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
+        this.userId = userId;
+        this.doorName = doorName;
+        this.doorLocation = doorLocation;
+        this.doorId = doorId;
+        this.addTime = addTime;
+        this.doorState = doorState;
+        this.doorKind = doorKind;
     }
 
     public KeyMes() {
-
+        super();
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getDoorName() {
+        return doorName;
+    }
+
+    public void setDoorName(String doorName) {
+        this.doorName = doorName == null ? null : doorName.trim();
+    }
+
+    public String getDoorLocation() {
+        return doorLocation;
+    }
+
+    public void setDoorLocation(String doorLocation) {
+        this.doorLocation = doorLocation == null ? null : doorLocation.trim();
+    }
+
+    public String getDoorId() {
+        return doorId;
+    }
+
+    public void setDoorId(String doorId) {
+        this.doorId = doorId == null ? null : doorId.trim();
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getDoorState() {
+        return doorState;
+    }
+
+    public void setDoorState(String doorState) {
+        this.doorState = doorState == null ? null : doorState.trim();
+    }
+
+    public String getDoorKind() {
+        return doorKind;
+    }
+
+    public void setDoorKind(String doorKind) {
+        this.doorKind = doorKind == null ? null : doorKind.trim();
+    }
 }

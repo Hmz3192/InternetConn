@@ -8,6 +8,20 @@ public class UserDetail {
 
     private Integer id;
 
+    @Override
+    public String toString() {
+        return "UserDetail{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", picUrl='" + picUrl + '\'' +
+                ", sixPasswrod='" + sixPasswrod + '\'' +
+                ", iphone='" + iphone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     private String account;
 
     private String name;
