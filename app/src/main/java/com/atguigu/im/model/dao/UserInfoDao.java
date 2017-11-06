@@ -36,7 +36,8 @@ public class UserInfoDao {
         values.put(UserInfoTable.COL_NAME, user.getName());
         values.put(UserInfoTable.COL_EMAIL, user.getEmail());
         values.put(UserInfoTable.COL_PHOTO, user.getPicUrl());
-        values.put(UserInfoTable.COL_PASS, user.getSixPasswrod());
+        values.put(UserInfoTable.COL_PASS, user.getPassword());
+        values.put(UserInfoTable.COL_SixPASS, user.getSixPasswrod());
         values.put(UserInfoTable.COL_PHONE, user.getIphone());
 
 
@@ -64,7 +65,9 @@ public class UserInfoDao {
             userInfo.setEmail(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_EMAIL)));
             userInfo.setPicUrl(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PHOTO)));
             userInfo.setIphone(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PHONE)));
-            userInfo.setSixPasswrod(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PASS)));
+            userInfo.setPassword(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PASS)));
+            userInfo.setSixPasswrod(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_SixPASS)));
+
         }
 
         // 关闭资源
@@ -93,7 +96,9 @@ public class UserInfoDao {
             userInfo.setEmail(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_EMAIL)));
             userInfo.setPicUrl(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PHOTO)));
             userInfo.setIphone(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PHONE)));
-            userInfo.setSixPasswrod(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PASS)));
+            userInfo.setPassword(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_PASS)));
+            userInfo.setSixPasswrod(cursor.getString(cursor.getColumnIndex(UserInfoTable.COL_SixPASS)));
+
             userInfos.add(userInfo);
 
         }

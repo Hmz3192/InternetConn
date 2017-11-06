@@ -1,14 +1,15 @@
 package com.atguigu.im.controller.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.atguigu.im.R;
+import com.atguigu.im.controller.activity.DoorOpenDetailActivity;
 import com.atguigu.im.model.bean.DoorRec;
 
 import java.util.List;
@@ -36,12 +37,20 @@ public class DoorRecordAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
        ViewHolder viewHolder = (ViewHolder) holder;
-        viewHolder.tv_rec_date.setText(datas.get(position).getOpenDate());
-        viewHolder.tv_rec_kind.setText(datas.get(position).getOpenKind());
+        viewHolder.tv_rec_date.setText(datas.get(position).getOpenTime());
+        if (datas.get(position).getOpenKind().equalsIgnoreCase("1")) {
+            viewHolder.tv_rec_kind.setText("密码开门");
+        }else
+            viewHolder.tv_rec_kind.setText("FreeKey开门");
+
         viewHolder.ll_rec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mcontext, "_" + position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mcontext, "_" + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mcontext, DoorOpenDetailActivity.class);
+                intent.putExtra("id",String.valueOf(datas.get(position).getId()));
+                intent.putExtra("doorId", datas.get(position).getDoorId());
+                mcontext.startActivity(intent);
             }
         });
         }

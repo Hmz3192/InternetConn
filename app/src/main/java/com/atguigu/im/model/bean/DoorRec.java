@@ -5,27 +5,64 @@ package com.atguigu.im.model.bean;
  */
 
 public class DoorRec {
-//    单个门的记录
-    String id;
-    String openDate;
-    String openKind;//开门类型，freekey 开门， 密码输入开门
-    String openReason; // 外来人员需要开门理由
+    private Integer id;
 
+    private Integer userId;
 
-    public String getId() {
+    private String doorId;
+
+    private String openTime;
+
+    private String openKind;
+
+    private String openPassword;
+
+    private String openReson;
+
+    public DoorRec(Integer id, Integer userId, String doorId, String openTime, String openKind, String openPassword, String openReson) {
+        this.id = id;
+        this.userId = userId;
+        this.doorId = doorId;
+        this.openTime = openTime;
+        this.openKind = openKind;
+        this.openPassword = openPassword;
+        this.openReson = openReson;
+    }
+
+    public DoorRec() {
+        super();
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getOpenDate() {
-        return openDate;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setOpenDate(String openDate) {
-        this.openDate = openDate;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getDoorId() {
+        return doorId;
+    }
+
+    public void setDoorId(String doorId) {
+        this.doorId = doorId == null ? null : doorId.trim();
+    }
+
+    public String getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(String openTime) {
+        this.openTime = openTime == null ? null : openTime.trim();
     }
 
     public String getOpenKind() {
@@ -33,26 +70,23 @@ public class DoorRec {
     }
 
     public void setOpenKind(String openKind) {
-        this.openKind = openKind;
+        this.openKind = openKind == null ? null : openKind.trim();
     }
 
-    public String getOpenReason() {
-        return openReason;
+    public String getOpenPassword() {
+        return openPassword;
     }
 
-    public void setOpenReason(String openReason) {
-        this.openReason = openReason;
+    public void setOpenPassword(String openPassword) {
+        this.openPassword = openPassword == null ? null : openPassword.trim();
     }
 
-    public DoorRec() {
-
+    public String getOpenReson() {
+        return openReson;
     }
 
-    public DoorRec(String id, String openDate, String openKind, String openReason) {
-
-        this.id = id;
-        this.openDate = openDate;
-        this.openKind = openKind;
-        this.openReason = openReason;
+    public void setOpenReson(String openReson) {
+        this.openReson = openReson == null ? null : openReson.trim();
     }
+
 }

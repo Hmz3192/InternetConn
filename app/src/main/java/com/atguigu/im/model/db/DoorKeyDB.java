@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.atguigu.im.model.dao.UserInfoTable;
+import com.atguigu.im.model.dao.KeyInfoTable;
 
 /**
  * Created by Administrator on 2016/9/23.
@@ -19,7 +19,7 @@ public class DoorKeyDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // 创建数据库表的语句
-        db.execSQL(UserInfoTable.CREATE_TAB);
+        db.execSQL(KeyInfoTable.CREATE_TAB);
     }
 
     // 数据库更新的时候调用

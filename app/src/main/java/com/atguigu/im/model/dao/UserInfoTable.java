@@ -10,7 +10,8 @@ public class UserInfoTable {
     public static final String COL_NAME = "name";
     public static final String COL_HXID = "hxid";
     public static final String COL_PHOTO = "photo";
-    public static final String COL_PASS = "sixpassword";
+    public static final String COL_PASS = "password";
+    public static final String COL_SixPASS = "sixpassword";
     public static final String COL_EMAIL = "email";
     public static final String COL_PHONE = "phone";
 
@@ -20,6 +21,7 @@ public class UserInfoTable {
             + COL_HXID + " text primary key,"
             + COL_NAME + " text,"
             + COL_PASS + " text,"
+            + COL_SixPASS + " text,"
             + COL_EMAIL + " text,"
             + COL_PHONE + " text,"
             + COL_PHOTO + " text);";

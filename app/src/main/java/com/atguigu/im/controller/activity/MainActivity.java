@@ -30,6 +30,7 @@ import com.atguigu.im.R;
 import com.atguigu.im.controller.fragment.ChatFragment;
 import com.atguigu.im.controller.fragment.ContactListFragment;
 import com.atguigu.im.controller.fragment.KeyFragment;
+import com.atguigu.im.controller.fragment.ShopFragment;
 import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.utils.BitmapUtils;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ChatFragment chatFragment;
     private ContactListFragment contactListFragment;
     private KeyFragment keyFragment;
+    private ShopFragment shopFragment;
     private Toolbar toolbar;
     private LinearLayout right;
     private NavigationView left;
@@ -228,6 +230,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         tv_add.setVisibility(View.GONE);
                         break;
 
+                    case R.id.rb_main_shop:
+                        fragment = shopFragment;
+                        toolbar.setTitle("发现");
+                        tv_add.setVisibility(View.GONE);
+                        break;
                     // 联系人列表页面
                     case R.id.rb_main_contact:
                         fragment = contactListFragment;
@@ -305,7 +312,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         chatFragment = new ChatFragment();
         contactListFragment = new ContactListFragment();
         keyFragment = new KeyFragment();
-
+        shopFragment = new ShopFragment();
 
     }
 

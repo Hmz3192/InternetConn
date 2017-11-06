@@ -31,6 +31,12 @@
             android:text="钥匙" />
 
         <RadioButton
+            android:id="@+id/rb_main_shop"
+            style="@style/MainButtonStyle"
+            android:drawableTop="@drawable/shop_selecter"
+            android:text="发现" />
+
+        <RadioButton
             android:id="@+id/rb_main_chat"
             style="@style/MainButtonStyle"
             android:drawableTop="@drawable/converstaion_selecter"

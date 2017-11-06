@@ -25,6 +25,7 @@ import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.utils.Constant;
 import com.atguigu.im.utils.PasswordView;
+import com.hyphenate.chat.EMClient;
 import com.kyleduo.switchbutton.SwitchButton;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -50,7 +51,7 @@ public class KeyFragment extends BaseFragment {
         View view = View.inflate(mcontext, R.layout.fragment_key, null);
         recy = view.findViewById(R.id.recy);
         ll = view.findViewById(R.id.ll);
-        userByHxId = Model.getInstance().getUserInfoDao().getUserByHxId(Model.getInstance().getGlobalUser());
+        userByHxId = Model.getInstance().getUserInfoDao().getUserByHxId(EMClient.getInstance().getCurrentUser());
 
         procssData();
 
@@ -200,10 +201,11 @@ public class KeyFragment extends BaseFragment {
                     Toast.makeText(mcontext, passwordView.getStrPassword()+"=="+userByHxId.getPassword(), Toast.LENGTH_SHORT).show();
                     if (passwordView.getStrPassword().equalsIgnoreCase(userByHxId.getPassword())) {
                         Toast.makeText(mcontext, "开门成功", Toast.LENGTH_SHORT).show();
-                        viewHolder.sb_default.setChecked(true);
                     } else {
                         Toast.makeText(mcontext, "密码不对", Toast.LENGTH_SHORT).show();
-                        viewHolder.sb_default.setChecked(false);
+//                        viewHolder.sb_default.setChecked(false);
+                        viewHolder.sb_default.toggle();
+
                     }
 
                 }

@@ -83,5 +83,35 @@ public class DoorKeyDao {
     }
 
 
+    // 根据环信id获取所有用户信息
+    public KeyMes getKeyMesByDoorId(String doorId) {
+        // 获取数据库对象
+        SQLiteDatabase db = mHelper.getReadableDatabase();
 
+        // 执行查询语句
+        String sql = "select * from " + KeyInfoTable.TAB_NAME + " where " + KeyInfoTable.COL_DoorId + "=?";
+        Cursor cursor = db.rawQuery(sql, new String[]{doorId});
+
+        KeyMes userInfo = null;
+        if(cursor.moveToNext()) {
+            userInfo = new KeyMes();
+
+            // 封装对象
+            userInfo.setId(Integer.valueOf(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_Id))));
+            userInfo.setUserId(Integer.valueOf(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_HXID))));
+            userInfo.setDoorId(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorId)));
+            userInfo.setAddTime((new Date(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorTime)))));
+            userInfo.setDoorKind(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_Kind)));
+            userInfo.setDoorLocation(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorLocation)));
+            userInfo.setDoorName(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorName)));
+            userInfo.setDoorState(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorState)));
+
+        }
+
+        // 关闭资源
+        cursor.close();
+
+        // 返回数据
+        return  userInfo;
+    }
 }

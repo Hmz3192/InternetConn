@@ -10,13 +10,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONArray;
 import com.atguigu.im.R;
 import com.atguigu.im.controller.adapter.DoorRecordAdapter;
+import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.DoorRec;
 import com.atguigu.im.model.bean.KeyMes;
+import com.atguigu.im.utils.Constant;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 public class SeeRecordActivity extends Activity {
     private List<DoorRec> doorRecs;
@@ -49,7 +54,7 @@ public class SeeRecordActivity extends Activity {
         keyMes = (KeyMes) intent.getSerializableExtra("keyMes");
         findViews();
         initData();
-        setAdapter();
+
     }
 
     private void setAdapter() {
@@ -61,11 +66,40 @@ public class SeeRecordActivity extends Activity {
     }
 
     private void initData() {
-        doorRecs = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            doorRecs.add(i,new DoorRec(i+"--0x111","2017.08.09 14:23:01","freekey解锁","freekey解锁1111111111111111111111111111111111111111"));
-        }
         tvRecoId.setText(keyMes.getDoorId());
+
+        final String url = Constant.GETDOORRECORD;
+
+        Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                OkHttpUtils
+                        .get()
+                        .url(url)
+                        .addParams("doorId", keyMes.getDoorId())
+                        .build()
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(okhttp3.Call call, Exception e, int id) {
+
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                doorRecs = JSONArray.parseArray(response, DoorRec.class);
+                                // 保存自己信息到本地数据库
+//                                Model.getInstance().getUserInfoDao().addAccount(userBean);
+                                for (DoorRec doorRec : doorRecs) {
+                                    Model.getInstance().getDoorRecordDao().addRecord(doorRec);
+                                }
+                                setAdapter();
+                            }
+                        });
+                // 校验
+            }
+        });
+
+
 
         laBackUser.setOnClickListener(new View.OnClickListener() {
             @Override

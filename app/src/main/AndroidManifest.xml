@@ -78,6 +78,7 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="3ecea51f560650b1ed8a4b99808f52e8" />
+
         <activity android:name=".controller.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -85,7 +86,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.activity.LoginAcitivity"  />
+        <activity android:name=".controller.activity.LoginAcitivity" />
         <activity android:name=".controller.activity.AddContactActivity" />
         <activity android:name=".controller.activity.InviteActivity" />
         <activity android:name=".controller.activity.ChatActivity" />
@@ -97,11 +98,12 @@
         <activity android:name=".controller.activity.SeeRecordActivity" />
         <activity
             android:name=".controller.activity.RegisterActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/Translucent" />
+            android:theme="@style/Translucent"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".controller.activity.GenPasswordActivity" />
         <activity android:name=".controller.activity.ChatManagerActivity" />
-        <activity android:name=".controller.activity.UserManagerActivity"></activity>
+        <activity android:name=".controller.activity.UserManagerActivity" />
+        <activity android:name=".controller.activity.DoorOpenDetailActivity"></activity>
     </application>
 
 </manifest>

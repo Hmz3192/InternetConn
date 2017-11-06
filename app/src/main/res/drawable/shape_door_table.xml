@@ -14,7 +14,7 @@
 
     <corners android:radius="10dp"></corners>
 
-    <solid android:color="#88bbe4"></solid>
+    <solid android:color="#f4f7f9"></solid>
     <size
         android:width="380dp"
         android:height="480dp"></size>
