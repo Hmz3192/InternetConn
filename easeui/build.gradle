@@ -8,7 +8,9 @@ android {
         minSdkVersion 15
         targetSdkVersion 26
     }
-	
+    lintOptions {
+        disable "ResourceType"
+    }
 	sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
