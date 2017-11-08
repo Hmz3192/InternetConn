@@ -12,6 +12,7 @@ import com.atguigu.im.IMApplication;
 // 获取数据
 public class SpUtils {
     public static final String IS_NEW_INVITE = "is_new_invite";// 新的邀请标记
+    public static final String Location = "location";
     private static SpUtils instance = new SpUtils();
     private static SharedPreferences mSp;
 
