@@ -1,6 +1,7 @@
 package com.atguigu.im.homeadapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.atguigu.im.R;
+import com.atguigu.im.controller.activity.ShopListActivity;
 import com.atguigu.im.model.bean.ResultBeanData;
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
@@ -45,6 +47,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     private final ResultBeanData.ResultBean resultBean;
     /*当前默认类型*/
     private int currentType = BANNER;
+    private List<ShopBean> shopBeens = new ArrayList<>();
 
 
     public HomeFragmentAdapter(Context mcontext, ResultBeanData.ResultBean resultBean) {
@@ -83,7 +86,13 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             channerViewHolder.setData(resultBean.getChannel_info());
         } else if (getItemViewType(position) == RECOMMEND) {
             RecommendViewHolder viewPageViewHolder = (RecommendViewHolder) holder;
-            viewPageViewHolder.setData();
+
+            shopBeens.add(0,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
+            shopBeens.add(1,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
+            shopBeens.add(2,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
+            shopBeens.add(3,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
+
+            viewPageViewHolder.setData(shopBeens);
 
         }
 
@@ -104,15 +113,12 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
 //                    Toast.makeText(mcontext, "position" + position, Toast.LENGTH_SHORT).show();
-//                    if (position <= 9) {
-//                        Intent intent = new Intent(mcontext, GoodsListActivity.class);
-//                        intent.putExtra("position", position);
-//                        intent.putExtra("yes", "1");
-//                        mcontext.startActivity(intent);
-//                    } else {
-//                        Toast.makeText(mcontext, "no choice", Toast.LENGTH_SHORT).show();
-//                    }
+                    Intent intent = new Intent(mcontext, ShopListActivity.class);
+                    intent.putExtra("position", position);
+                    mcontext.startActivity(intent);
+
                 }
+
             });
         }
 
@@ -137,8 +143,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             rec_like = inflate.findViewById(R.id.rec_like);
         }
 
-        public void setData() {
-            adapter = new LikeAdapter(context);
+        public void setData(List<ShopBean> shopBeens) {
+            adapter = new LikeAdapter(context,shopBeens);
             GridLayoutManager manager = new GridLayoutManager(mcontext, 1);
             rec_like.setAdapter(adapter);
             /*设置布局管理者*/
@@ -175,7 +181,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void OnLoadImage(ImageView view, Object url) {
                     /*联网请求图片--Glide*/
-                    Glide.with(mcontext).load(Uri.parse("http://101.201.234.133:8080/Andro/img" + url)).into(view);
+                    Glide.with(mcontext).load(Uri.parse("http://10.7.90.214:8080" + url)).into(view);
                 }
             });
 

@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class ShopFragment extends BaseFragment {
     private TextView txt_city;
     private EditText et_search;
     private String finalLocation = "重新获取";
+    private LinearLayout ll_all;
 
     @Override
     public View initView() {
@@ -50,9 +52,7 @@ public class ShopFragment extends BaseFragment {
 
         String string = SpUtils.getInstance().getString(Location, finalLocation);
         txt_city.setText(string);
-
         initListener();
-
         return view;
     }
 
@@ -66,7 +66,7 @@ public class ShopFragment extends BaseFragment {
     }
 
     private void getDataFromNet() {
-        String url = "http://101.201.234.133:8080/Andro/json/HOME_URL.json";
+        String url = "http://10.7.90.214:8080/new/json/HOME_URL.json";
   /*   String url = "http://www.csdn.net/";*/
   /*String url = "http://101.201.234.133:8080/index.jsp";*/
         OkHttpUtils
