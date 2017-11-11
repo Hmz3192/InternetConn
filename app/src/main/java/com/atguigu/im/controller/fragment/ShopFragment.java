@@ -16,14 +16,14 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.atguigu.im.R;
+import com.atguigu.im.homeadapter.ChannelBean;
 import com.atguigu.im.homeadapter.HomeFragmentAdapter;
-import com.atguigu.im.model.bean.ResultBeanData;
+import com.atguigu.im.model.Model;
+import com.atguigu.im.utils.Constant;
 import com.atguigu.im.utils.SpUtils;
 import com.hyphenate.easeui.ui.EaseBaiduMapActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
-
-import okhttp3.Call;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static com.atguigu.im.utils.SpUtils.Location;
@@ -36,7 +36,7 @@ public class ShopFragment extends BaseFragment {
     private static final int REQUEST_CODE_MAP = 111;
 
     private RecyclerView rvHome;
-    private ResultBeanData.ResultBean resultBean;
+    private ChannelBean.ResultBean resultBean;
     private HomeFragmentAdapter adapter;
     private TextView txt_city;
     private EditText et_search;
@@ -66,33 +66,43 @@ public class ShopFragment extends BaseFragment {
     }
 
     private void getDataFromNet() {
-        String url = "http://10.7.90.214:8080/new/json/HOME_URL.json";
-  /*   String url = "http://www.csdn.net/";*/
-  /*String url = "http://101.201.234.133:8080/index.jsp";*/
-        OkHttpUtils
-                .get()
-                .url(url)
-                .build()
-                .execute(new StringCallback() {
-                    /*当请求失败的时候*/
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                    }
+        Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            String url = Constant.GETRECOMMEND;
+                            OkHttpUtils
+                                    .get()
+                                    .url(url)
+                                    .build()
+                                    .execute(new StringCallback() {
+                                        @Override
+                                        public void onError(okhttp3.Call call, Exception e, int id) {
 
-                    /*当联网成功回调数据，respond请求成功的数据回调*/
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Log.e("error", "请求成功==" + response);
-                        //解析数据
-                        procssData(response);
-                    }
+                                        }
 
+                                        @Override
+                                        public void onResponse(String response, int id) {
+                                            Log.e("++++++++++", response.toString());
+                                            procssData(response);
+                                        }
+                                    });
 
-                });
+                        }
+                    });
+                    // 校验
+                } catch (Exception e) {
+
+                }
+            }
+        });
     }
 
     private void procssData(String response) {
-        ResultBeanData resultBeanData = JSON.parseObject(response, ResultBeanData.class);
+        ChannelBean resultBeanData = JSON.parseObject(response, ChannelBean.class);
         resultBean = resultBeanData.getResult();
         if (resultBean != null) {
             //有数据

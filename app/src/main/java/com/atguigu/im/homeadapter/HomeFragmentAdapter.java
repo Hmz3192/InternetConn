@@ -14,7 +14,6 @@ import android.widget.ImageView;
 
 import com.atguigu.im.R;
 import com.atguigu.im.controller.activity.ShopListActivity;
-import com.atguigu.im.model.bean.ResultBeanData;
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -24,6 +23,7 @@ import com.youth.banner.listener.OnLoadImageListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -43,14 +43,11 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     /*初始化布局*/
     private final LayoutInflater mLayoutInflater;
     private final Context mcontext;
-    /*数据载体*/
-    private final ResultBeanData.ResultBean resultBean;
+    private final ChannelBean.ResultBean resultBean;
     /*当前默认类型*/
     private int currentType = BANNER;
-    private List<ShopBean> shopBeens = new ArrayList<>();
 
-
-    public HomeFragmentAdapter(Context mcontext, ResultBeanData.ResultBean resultBean) {
+    public HomeFragmentAdapter(Context mcontext, ChannelBean.ResultBean resultBean) {
         this.mcontext = mcontext;
         this.resultBean = resultBean;
         mLayoutInflater = LayoutInflater.from(mcontext);
@@ -86,13 +83,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             channerViewHolder.setData(resultBean.getChannel_info());
         } else if (getItemViewType(position) == RECOMMEND) {
             RecommendViewHolder viewPageViewHolder = (RecommendViewHolder) holder;
-
-            shopBeens.add(0,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
-            shopBeens.add(1,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
-            shopBeens.add(2,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
-            shopBeens.add(3,new ShopBean("传奇鸡米翅","小吃快餐","浙师大","523m","1003人消费过","url"));
-
-            viewPageViewHolder.setData(shopBeens);
+            viewPageViewHolder.setData(resultBean.getKTV());
 
         }
 
@@ -114,7 +105,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
 //                    Toast.makeText(mcontext, "position" + position, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(mcontext, ShopListActivity.class);
-                    intent.putExtra("position", position);
+                    intent.putExtra("position", position+"");
                     mcontext.startActivity(intent);
 
                 }
@@ -122,7 +113,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             });
         }
 
-        public void setData(List<ResultBeanData.ResultBean.ChannelInfoBean> data) {
+        public void setData(List<ChannelBean.ResultBean.ChannelInfoBean> data) {
             /*得到数据了*/
             /*设置gridview适配器*/
             adapter = new ChannelAdapter(mcontext, data);
@@ -135,23 +126,37 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     private class RecommendViewHolder extends RecyclerView.ViewHolder {
         private final Context context;
         private RecyclerView rec_like;
-        private LikeAdapter adapter;
+        private RecommndAdapter adapter;
+        private int a, b, c;
 
         public RecommendViewHolder(Context mcontext, View inflate) {
             super(inflate);
             this.context = mcontext;
             rec_like = inflate.findViewById(R.id.rec_like);
+
         }
 
-        public void setData(List<ShopBean> shopBeens) {
-            adapter = new LikeAdapter(context,shopBeens);
+        public void setData(List<ChannelBean.ResultBean.KTVBean> shopBeens) {
+
+            adapter = new RecommndAdapter(context,shopBeens);
             GridLayoutManager manager = new GridLayoutManager(mcontext, 1);
             rec_like.setAdapter(adapter);
             /*设置布局管理者*/
             rec_like.setLayoutManager(manager);
         }
 
+        private void getRandomNumber() {
+            a = new Random().nextInt(5);
+            if (a < 4) {
+                b = new Random().nextInt(4 - a);
+                if (b < (4 - a)) {
+                    c = 4 - a - b;
+                }
+            }
+            System.out.println(a + " " + b + " " + c);
+        }
     }
+
 
     class BannnerViewHolder extends RecyclerView.ViewHolder {
         private Context context;
@@ -164,7 +169,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             this.banner = (Banner) itemview.findViewById(R.id.banner);
         }
 
-        public void setData(List<ResultBeanData.ResultBean.BannerInfoBean> banner_info) {
+        public void setData(List<ChannelBean.ResultBean.BannerInfoBean> banner_info) {
             /*设置banner的数据*/
             /*得到图片集合地址*/
             List<String> imagesUrl = new ArrayList<>();
