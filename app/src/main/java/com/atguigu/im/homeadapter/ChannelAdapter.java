@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.atguigu.im.R;
+import com.atguigu.im.utils.Constant;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -55,7 +56,7 @@ public class ChannelAdapter extends BaseAdapter {
         }
         /*根据位置得到对应的数据*/
        ChannelBean.ResultBean.ChannelInfoBean channelInfoBean = datas.get(position);
-        Glide.with(mContext).load("http://10.7.90.214:8080" + channelInfoBean.getImage()).into(viewHolder.iv_icon);
+        Glide.with(mContext).load(Constant.LOADURL + channelInfoBean.getImage()).into(viewHolder.iv_icon);
         viewHolder.tv_title.setText(channelInfoBean.getChannel_name());
         return view;
     }

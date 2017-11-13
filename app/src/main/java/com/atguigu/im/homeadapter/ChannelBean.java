@@ -1,18 +1,18 @@
 package com.atguigu.im.homeadapter;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by ZJNU-Hmz on 2017/11/11.
  */
 
-public class ChannelBean {
-
+public class ChannelBean implements Serializable{
 
     /**
      * code : 200
      * msg : 请求成功
-     * result : {"banner_info":[{"image":"/new/img/act/z2.png","option":3,"type":0},{"image":"/new/img/act/z4.png","option":2,"type":0},{"image":"/new/img/act/z3.png","option":1,"type":0}],"channel_info":[{"channel_name":"美食","image":"/new/img/channel/c1.png","value":{"channel_id":"8"}},{"channel_name":"购物","image":"/new/img/channel/c2.png","value":{"channel_id":"4"}},{"channel_name":"玩乐","image":"/new/img/channel/c3.png","value":{"channel_id":"3"}}],"KTV":[{"name":"SingYoung 复合式KTV","rating":1,"price":"88元起","length":"距离55m","location":"浙师大北门55号","url":"图片路径","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"SingYoung 复合式KTV","rating":1,"price":"88元起","length":"距离55m","location":"浙师大北门55号","url":"图片路径","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"SingYoung 复合式KTV","rating":1,"price":"88元起","length":"距离55m","location":"浙师大北门55号","url":"图片路径","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]}],"FOOD":[{"name":"传奇鸡米翅","rating":1,"price":"10元/人","length":"距离55m","location":"浙师大北门55号","url":"图片路径","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"小吃快餐","buy":[{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"传奇鸡米翅","rating":1,"price":"10元/人","length":"距离55m","location":"浙师大北门55号","url":"图片路径","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"小吃快餐","buy":[{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]}],"CLOSE":[{"product_id":6633,"name":"【画影】现货  小狐狸羽织 ","rating":5,"price":132,"url":"/1466759461799.jpg","number":"100人以上消费","introduce":"红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~","kind":"小吃快餐","comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3831,"name":"【喵鹿酱】超萌 假透肉 拼接 踩脚过膝打底袜 裤袜-加绒保暖","rating":5,"price":54,"url":"/1452161899947.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"小吃快餐","comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3845,"name":"预售 【世界线的彼岸】炸鸡块 颜文字 羊毛呢贝雷帽 圆润烧饼帽 保暖","rating":1,"price":49,"url":"/1451967280855.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"小吃快餐","comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]}]}
+     * result : {"banner_info":[{"image":"act/z2.png","option":3,"type":0},{"image":"act/z4.png","option":2,"type":0},{"image":"act/z3.png","option":1,"type":0}],"channel_info":[{"channel_name":"美食","image":"channel/c1.png","value":{"channel_id":"8"}},{"channel_name":"购物","image":"channel/c2.png","value":{"channel_id":"4"}},{"channel_name":"玩乐","image":"channel/c3.png","value":{"channel_id":"3"}}],"KTV":[{"name":"SingYoung 复合式KTV","rating":5,"price":"43元起","length":"距离55m","location":"世贸中心5楼","url":"ktv/k1.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"name":"琴潮量贩KTV","rating":5,"price":"63元起","length":"距离55m","location":"金茂大厦5层","url":"ktv/k2.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"蓝巨星量贩KTV","rating":5,"price":"16元起","length":"距离55m","location":"金茂大厦5层","url":"ktv/k3.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"name":"凯乐迪量贩KTV","rating":5,"price":"38元起","length":"距离55m","location":"金茂大厦4层","url":"ktv/k4.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"SingYoung 复合式KTV","rating":5,"price":"43元起","length":"距离55m","location":"世贸中心5楼","url":"ktv/k1.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"name":"琴潮量贩KTV","rating":5,"price":"63元起","length":"距离55m","location":"金茂大厦5层","url":"ktv/k2.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"name":"蓝巨星量贩KTV","rating":5,"price":"16元起","length":"距离55m","location":"金茂大厦5层","url":"ktv/k3.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"凯乐迪量贩KTV","rating":5,"price":"38元起","length":"距离55m","location":"金茂大厦4层","url":"ktv/k4.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]}],"FOOD":[{"name":"布恬私家蛋糕","rating":5,"price":"20元/人","length":"距离55m","location":"婺城区人民东路118号","url":"food/f1.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"美食甜点","buy":[{"url":"food/f1/ff1.png","price":98,"name":"甜品 3 选 1","introduce":"抹茶红豆，焦糖巧克力，蓝莓千层","rating":4,"selled":"已售100"},{"url":"food/f1/ff2.png","price":98,"name":"4寸千层蛋糕","introduce":"千层蛋糕，4英寸，圆形","rating":4,"selled":"已售100"},{"url":"food/f1/ff3.png","price":98,"name":"6寸淡奶油水果千层","introduce":"蓝莓，红豆，哈密瓜，火龙果，百香果，焦糖","rating":4,"selled":"已售12"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"name":"贝克汉堡","rating":5,"price":"15元/人","length":"距离55m","location":"婺城区浙江师范大学北门","url":"food/f3.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"快餐饮食","buy":[{"url":"food/f2/f2.png","price":13.8,"name":"单人套餐","introduce":"鸡肉卷+可乐（中）+薯条（小）","rating":4,"selled":"已售100"},{"url":"food/f2/f2.png","price":26.9,"name":"双人套餐","introduce":"香辣鸡腿堡+炸鸡翅+可乐（中）x2+薯条（中）","rating":4,"selled":"已售100"},{"url":"food/f2/f2.png","price":13.8,"name":"单人套餐2","introduce":"鸡腿堡+可乐（中）+薯条（小）","rating":4,"selled":"已售100"}],"comment":[{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"name":"Apple tree 树上甜点","rating":5,"price":"14元/人","length":"距离55m","location":"婺城区同心路172号","url":"food/f4.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"美食甜点","buy":[{"url":"food/f4/f1.png","price":16.8,"name":"千层水果盒子","introduce":"当季时鲜水果，约280Ml","rating":4,"selled":"已售100"},{"url":"food/f4/f2.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"food/f4/f3.png","price":98,"name":"8英寸奶油威风蛋糕","introduce":"奶油威风蛋糕，约8英寸","rating":4,"selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢","date":"2017/07/13"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"name":"鸭血粉丝","rating":5,"price":"10元/人","length":"距离792m","location":"婺城区骆家塘畅达街105号","url":"food/f2.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"特色小吃","buy":[{"url":"food/f3/f1.png","price":16.8,"name":"鸭血粉丝","introduce":"免费提供餐巾纸","rating":4,"selled":"已售100"},{"url":"food/f3/f2.png","price":17.8,"name":"小份鸭血粉丝+鸭头","introduce":"免费提供餐巾纸","rating":4,"selled":"已售100"}],"comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]}],"CLOSE":[{"product_id":6633,"name":"【画影】现货  小狐狸羽织 ","rating":5,"price":132,"url":"close/c3.jpg","number":"100人以上消费","introduce":"红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~","kind":"羽绒外套","comment":[{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3831,"name":"【喵鹿酱】超萌 假透肉 拼接 踩脚过膝打底袜 裤袜-加绒保暖","rating":5,"price":54,"url":"close/c2.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"打底裤","comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":6969,"name":"【涉川原创】周边小物 手感超好超萌的兔毛小兔纸包挂/毛绒玩偶","rating":5,"price":54,"url":"close/c4.jpg","number":"兔兔刚到手会有浮毛，多拍拍抖抖吹吹揉揉就好啦(","introduce":"衣服材料是。。。。。","kind":"毛绒手套","comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3845,"name":"预售 【世界线的彼岸】炸鸡块 颜文字 羊毛呢贝雷帽 圆润烧饼帽 保暖","rating":1,"price":49,"url":"close/c1.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"毛绒帽子","comment":[{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":6633,"name":"【画影】现货  小狐狸羽织 ","rating":5,"price":132,"url":"close/c3.jpg","number":"100人以上消费","introduce":"红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~","kind":"羽绒外套","comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3831,"name":"【喵鹿酱】超萌 假透肉 拼接 踩脚过膝打底袜 裤袜-加绒保暖","rating":5,"price":54,"url":"close/c2.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"打底裤","comment":[{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":6969,"name":"【涉川原创】周边小物 手感超好超萌的兔毛小兔纸包挂/毛绒玩偶","rating":5,"price":54,"url":"close/c4.jpg","number":"兔兔刚到手会有浮毛，多拍拍抖抖吹吹揉揉就好啦(","introduce":"衣服材料是。。。。。","kind":"毛绒手套","comment":[{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3845,"name":"预售 【世界线的彼岸】炸鸡块 颜文字 羊毛呢贝雷帽 圆润烧饼帽 保暖","rating":1,"price":49,"url":"close/c1.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"毛绒帽子","comment":[{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]}]}
      */
 
     private int code;
@@ -92,7 +92,7 @@ public class ChannelBean {
 
         public static class BannerInfoBean {
             /**
-             * image : /new/img/act/z2.png
+             * image : act/z2.png
              * option : 3
              * type : 0
              */
@@ -129,7 +129,7 @@ public class ChannelBean {
         public static class ChannelInfoBean {
             /**
              * channel_name : 美食
-             * image : /new/img/channel/c1.png
+             * image : channel/c1.png
              * value : {"channel_id":"8"}
              */
 
@@ -181,15 +181,15 @@ public class ChannelBean {
         public static class KTVBean {
             /**
              * name : SingYoung 复合式KTV
-             * rating : 1
-             * price : 88元起
+             * rating : 5
+             * price : 43元起
              * length : 距离55m
-             * location : 浙师大北门55号
-             * url : 图片路径
+             * location : 世贸中心5楼
+             * url : ktv/k1.png
              * number : 100人以上消费
              * introduce : 营业时间：周一至周日
              * buy : [{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}]
-             * comment : [{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
+             * comment : [{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]
              */
 
             private String name;
@@ -333,11 +333,13 @@ public class ChannelBean {
                 /**
                  * url : 科技园路.
                  * name : 小华
+                 * date : 2017/07/13
                  * neirong : 环境很好，很干净，很喜欢
                  */
 
                 private String url;
                 private String name;
+                private String date;
                 private String neirong;
 
                 public String getUrl() {
@@ -356,6 +358,14 @@ public class ChannelBean {
                     this.name = name;
                 }
 
+                public String getDate() {
+                    return date;
+                }
+
+                public void setDate(String date) {
+                    this.date = date;
+                }
+
                 public String getNeirong() {
                     return neirong;
                 }
@@ -368,17 +378,17 @@ public class ChannelBean {
 
         public static class FOODBean {
             /**
-             * name : 传奇鸡米翅
-             * rating : 1
-             * price : 10元/人
+             * name : 布恬私家蛋糕
+             * rating : 5
+             * price : 20元/人
              * length : 距离55m
-             * location : 浙师大北门55号
-             * url : 图片路径
+             * location : 婺城区人民东路118号
+             * url : food/f1.png
              * number : 100人以上消费
              * introduce : 营业时间：周一至周日
-             * kind : 小吃快餐
-             * buy : [{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"科技园路.","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}]
-             * comment : [{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
+             * kind : 美食甜点
+             * buy : [{"url":"food/f1/ff1.png","price":98,"name":"甜品 3 选 1","introduce":"抹茶红豆，焦糖巧克力，蓝莓千层","rating":4,"selled":"已售100"},{"url":"food/f1/ff2.png","price":98,"name":"4寸千层蛋糕","introduce":"千层蛋糕，4英寸，圆形","rating":4,"selled":"已售100"},{"url":"food/f1/ff3.png","price":98,"name":"6寸淡奶油水果千层","introduce":"蓝莓，红豆，哈密瓜，火龙果，百香果，焦糖","rating":4,"selled":"已售12"}]
+             * comment : [{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
              */
 
             private String name;
@@ -483,10 +493,10 @@ public class ChannelBean {
 
             public static class BuyBeanX {
                 /**
-                 * url : 科技园路.
-                 * price : 128
-                 * name : 布恬私家蛋糕
-                 * introduce : 慕斯蛋糕1个，约8英寸，正方形
+                 * url : food/f1/ff1.png
+                 * price : 98
+                 * name : 甜品 3 选 1
+                 * introduce : 抹茶红豆，焦糖巧克力，蓝莓千层
                  * rating : 4
                  * selled : 已售100
                  */
@@ -551,11 +561,13 @@ public class ChannelBean {
                 /**
                  * url : 科技园路.
                  * name : 小华
+                 * date : 2017/07/13
                  * neirong : 环境很好，很干净，很喜欢
                  */
 
                 private String url;
                 private String name;
+                private String date;
                 private String neirong;
 
                 public String getUrl() {
@@ -574,6 +586,14 @@ public class ChannelBean {
                     this.name = name;
                 }
 
+                public String getDate() {
+                    return date;
+                }
+
+                public void setDate(String date) {
+                    this.date = date;
+                }
+
                 public String getNeirong() {
                     return neirong;
                 }
@@ -589,18 +609,18 @@ public class ChannelBean {
              * product_id : 6633
              * name : 【画影】现货  小狐狸羽织
              * rating : 5
-             * price : 132.0
-             * url : /1466759461799.jpg
+             * price : 132
+             * url : close/c3.jpg
              * number : 100人以上消费
              * introduce : 红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~
-             * kind : 小吃快餐
-             * comment : [{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
+             * kind : 羽绒外套
+             * comment : [{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
              */
 
             private int product_id;
             private String name;
             private int rating;
-            private double price;
+            private int price;
             private String url;
             private String number;
             private String introduce;
@@ -631,11 +651,11 @@ public class ChannelBean {
                 this.rating = rating;
             }
 
-            public double getPrice() {
+            public int getPrice() {
                 return price;
             }
 
-            public void setPrice(double price) {
+            public void setPrice(int price) {
                 this.price = price;
             }
 
@@ -682,11 +702,13 @@ public class ChannelBean {
             public static class CommentBeanXX {
                 /**
                  * url : 科技园路.
+                 * date : 2017/07/13
                  * name : 小华
                  * neirong : 环境很好，很干净，很喜欢
                  */
 
                 private String url;
+                private String date;
                 private String name;
                 private String neirong;
 
@@ -696,6 +718,14 @@ public class ChannelBean {
 
                 public void setUrl(String url) {
                     this.url = url;
+                }
+
+                public String getDate() {
+                    return date;
+                }
+
+                public void setDate(String date) {
+                    this.date = date;
                 }
 
                 public String getName() {

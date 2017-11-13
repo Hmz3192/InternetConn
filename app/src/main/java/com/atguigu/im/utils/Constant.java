@@ -18,4 +18,11 @@ public class Constant {
 
     public static final String GETDOORRECORD = "http://101.132.112.251:8111/IntelCd/getDoorRecord";
 
+
+
+    public static final String GETRECOMMEND = "http://10.7.90.214:8080/new/json/KTV.json";
+
+    public static final String LOADURL = "http://10.7.90.214:8080/new/img/";
+
+
 }

@@ -4,9 +4,12 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
 
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
     defaultConfig {
         applicationId "com.atguigu.im"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -31,6 +34,7 @@ dependencies {
     compile 'com.github.clans:fab:1.6.0'
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.kyleduo.switchbutton:library:1.4.6'
+    compile 'com.androidkun:pulltorefreshrecyclerview:1.0.9'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.+'
     compile 'com.dk.view.patheffect:Library:0.1.1@aar'

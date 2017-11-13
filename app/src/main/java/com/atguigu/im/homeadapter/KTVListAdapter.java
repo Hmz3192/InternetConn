@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ public class KTVListAdapter extends RecyclerView.Adapter {
     private final Context mcontext;
     private final List<ChannelBean.ResultBean.KTVBean> datas;
     private ViewHolder viewHolder;
+    private OnItemClickListener onItemClickListener;
 
     public KTVListAdapter(Context context, List<ChannelBean.ResultBean.KTVBean> shopBeens) {
         this.mcontext = context;
@@ -35,14 +37,9 @@ public class KTVListAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         viewHolder = (ViewHolder) holder;
-        viewHolder.tvKtvName.setText(datas.get(position).getName());
-        viewHolder.tvKtvPrice.setText(datas.get(position).getPrice());
-        viewHolder.tvKtvLong.setText(datas.get(position).getLength());
-        viewHolder.tvKtvNumber.setText(datas.get(position).getNumber());
-        viewHolder.ktvRatingBar.setRating(datas.get(position).getRating());
-        Glide.with(mcontext).load(Constant.LOADURL +datas.get(position).getUrl()).into(viewHolder.iv_ktv);
+        viewHolder.setData(datas.get(position));
 
     }
 
@@ -57,7 +54,9 @@ public class KTVListAdapter extends RecyclerView.Adapter {
         private TextView tvKtvPrice;
         private TextView tvKtvLong;
         private TextView tvKtvNumber;
+        private LinearLayout ll_ktv;
         private ImageView iv_ktv;
+        private ChannelBean.ResultBean.KTVBean data;
 
         /**
          * Find the Views in the layout<br />
@@ -73,13 +72,38 @@ public class KTVListAdapter extends RecyclerView.Adapter {
             tvKtvPrice = (TextView)itemView.findViewById( R.id.tv_ktv_price );
             tvKtvLong = (TextView)itemView.findViewById( R.id.tv_ktv_long );
             tvKtvNumber = (TextView)itemView.findViewById( R.id.tv_ktv_number );
+            ll_ktv = itemView.findViewById(R.id.ll_ktv);
         }
 
         public ViewHolder(View itemView) {
             super(itemView);
             findViews(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.setOnItemClickListener(data);
+                    }
+                }
+            });
         }
 
 
+        public void setData(ChannelBean.ResultBean.KTVBean ktvBean) {
+            this.data = ktvBean;
+            tvKtvName.setText(data.getName());
+            tvKtvPrice.setText(data.getPrice());
+            tvKtvLong.setText(data.getLength());
+            tvKtvNumber.setText(data.getNumber());
+            ktvRatingBar.setRating(data.getRating());
+            Glide.with(mcontext).load(Constant.LOADURL +data.getUrl()).into(iv_ktv);
+        }
+    }
+
+    public interface OnItemClickListener {
+        void setOnItemClickListener(ChannelBean.ResultBean.KTVBean data);
+    }
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.atguigu.im.R;
@@ -35,9 +36,19 @@ public class GoodsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.setData(datas.get(position));
+       /* viewHolder.ll_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mcontext, ShopDetailActivity.class);
+                intent.putExtra("data", (Serializable) datas.get(position));
+                intent.putExtra("kind", "1");
+                mcontext.startActivity(intent);
+
+            }
+        });*/
     }
 
     @Override
@@ -51,13 +62,13 @@ public class GoodsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         private TextView tv_name;
         private TextView tv_price;
         private ChannelBean.ResultBean.CLOSEBean data;
-
+        private LinearLayout ll_close;
         public ViewHolder(View itemView) {
             super(itemView);
             iv_hot = (ImageView) itemView.findViewById(R.id.iv_hot);
             tv_name = (TextView) itemView.findViewById(R.id.tv_name);
             tv_price = (TextView) itemView.findViewById(R.id.tv_price);
-
+            ll_close = itemView.findViewById(R.id.ll_close);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

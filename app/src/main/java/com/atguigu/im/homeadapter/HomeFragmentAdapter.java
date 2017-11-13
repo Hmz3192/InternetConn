@@ -3,17 +3,24 @@ package com.atguigu.im.homeadapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.atguigu.im.R;
 import com.atguigu.im.controller.activity.ShopListActivity;
+import com.atguigu.im.utils.Constant;
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -37,7 +44,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     public static final int CHANNEL = 1;
     /*viewPage*/
     public static final int RECOMMEND = 2;
-
+    private List<ChannelBean.ResultBean.KTVBean> ktvBean;
+    private Animation mRefreshAnim;
 
     private static final String GOODSBEAN = "goodsbean";
     /*初始化布局*/
@@ -46,13 +54,42 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     private final ChannelBean.ResultBean resultBean;
     /*当前默认类型*/
     private int currentType = BANNER;
+    private RecommendViewHolder recommendViewHolder;
+    private Handler handler = new Handler(){
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            stopAnim(recommendViewHolder);
+            ktvBean = randomList(ktvBean);
+            recommendViewHolder.setData(ktvBean);
+
+        }
+    };
+
+    public static List<ChannelBean.ResultBean.KTVBean> randomList(List<ChannelBean.ResultBean.KTVBean> objects) {
+
+        List<ChannelBean.ResultBean.KTVBean> objects1Temp = new ArrayList<>();
+        int end = objects.size();
+        int list = end;
+        Random rad = new Random();
+
+        for (int i = 0; i < list; i++) {
+            int index = rad.nextInt(end);
+            objects1Temp.add(objects.get(index));
+            objects.remove(index);
+            end--;
+        }
+        return objects1Temp;
+    }
 
     public HomeFragmentAdapter(Context mcontext, ChannelBean.ResultBean resultBean) {
         this.mcontext = mcontext;
         this.resultBean = resultBean;
+        this.ktvBean = resultBean.getKTV();
         mLayoutInflater = LayoutInflater.from(mcontext);
+        mRefreshAnim = AnimationUtils.loadAnimation(mcontext, R.anim.anim_rotate_refresh);
     }
-
 
     /*相当于getview 创建viewholder部分*/
     /*创建viewholder
@@ -65,11 +102,21 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (viewType == CHANNEL) {
             return new ChannerViewHolder(mcontext, mLayoutInflater.inflate(R.layout.channel_item, null));
         } else if (viewType == RECOMMEND) {
-            return new RecommendViewHolder(mcontext, mLayoutInflater.inflate(R.layout.layout_recommend, null));
+            recommendViewHolder = new RecommendViewHolder(mcontext, mLayoutInflater.inflate(R.layout.layout_recommend, null));
+            recommendViewHolder.ll_refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    starAnim(recommendViewHolder);
+                    handler.sendMessageDelayed(Message.obtain(), 2000);
+                }
+            });
+            return recommendViewHolder;
+
         }
 
         return null;
     }
+
 
     /*相当于getview方法中的绑定数据模块*/
     @Override
@@ -82,12 +129,27 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             ChannerViewHolder channerViewHolder = (ChannerViewHolder) holder;
             channerViewHolder.setData(resultBean.getChannel_info());
         } else if (getItemViewType(position) == RECOMMEND) {
-            RecommendViewHolder viewPageViewHolder = (RecommendViewHolder) holder;
-            viewPageViewHolder.setData(resultBean.getKTV());
+            recommendViewHolder = (RecommendViewHolder) holder;
+            recommendViewHolder.setData(ktvBean);
 
         }
 
 
+    }
+
+    public void stopAnim(RecommendViewHolder recommendViewHolder) {
+        recommendViewHolder.textView5.setVisibility(View.VISIBLE);
+        mRefreshAnim.reset();
+        recommendViewHolder.iv_refresh.clearAnimation();
+        recommendViewHolder.iv_refresh.setBackgroundResource(R.drawable.refresh);
+    }
+
+    private void starAnim(RecommendViewHolder recommendViewHolder) {
+        recommendViewHolder.textView5.setVisibility(View.GONE);
+        mRefreshAnim.reset();
+        recommendViewHolder.iv_refresh.clearAnimation();
+        recommendViewHolder.iv_refresh.setBackgroundResource(R.drawable.refresh);
+        recommendViewHolder.iv_refresh.startAnimation(mRefreshAnim);
     }
 
     class ChannerViewHolder extends RecyclerView.ViewHolder {
@@ -126,34 +188,26 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     private class RecommendViewHolder extends RecyclerView.ViewHolder {
         private final Context context;
         private RecyclerView rec_like;
-        private RecommndAdapter adapter;
-        private int a, b, c;
-
+        private  RecommndAdapter adapter;
+        private LinearLayout ll_refresh;
+        private ImageView iv_refresh;
+        private TextView textView5;
         public RecommendViewHolder(Context mcontext, View inflate) {
             super(inflate);
             this.context = mcontext;
             rec_like = inflate.findViewById(R.id.rec_like);
-
+            ll_refresh = inflate.findViewById(R.id.ll_refresh);
+            iv_refresh = inflate.findViewById(R.id.iv_refresh);
+            textView5 = inflate.findViewById(R.id.textView5);
         }
 
         public void setData(List<ChannelBean.ResultBean.KTVBean> shopBeens) {
 
             adapter = new RecommndAdapter(context,shopBeens);
-            GridLayoutManager manager = new GridLayoutManager(mcontext, 1);
+            GridLayoutManager manager = new GridLayoutManager(context, 1);
             rec_like.setAdapter(adapter);
             /*设置布局管理者*/
             rec_like.setLayoutManager(manager);
-        }
-
-        private void getRandomNumber() {
-            a = new Random().nextInt(5);
-            if (a < 4) {
-                b = new Random().nextInt(4 - a);
-                if (b < (4 - a)) {
-                    c = 4 - a - b;
-                }
-            }
-            System.out.println(a + " " + b + " " + c);
         }
     }
 
@@ -186,7 +240,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void OnLoadImage(ImageView view, Object url) {
                     /*联网请求图片--Glide*/
-                    Glide.with(mcontext).load(Uri.parse("http://10.7.90.214:8080" + url)).into(view);
+                    Glide.with(mcontext).load(Uri.parse(Constant.LOADURL + url)).into(view);
                 }
             });
 

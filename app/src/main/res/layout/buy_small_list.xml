@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:id="@+id/iv_small_pic"
+            android:background="@drawable/ff1" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="甜品 3 选 1"
+                android:textColor="@color/black_deep"
+                android:id="@+id/iv_small_name"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/iv_small_introduce"
+                android:textColor="#fca4a4a4"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:id="@+id/iv_small_price"
+
+                    android:text="$ 34"
+                    android:textColor="#fcfd0825"
+                    android:textSize="12sp" />
+
+                <RatingBar
+                    android:id="@+id/iv_small_ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="5dp"
+                    android:numStars="5"
+                    android:progressTint="#f1e727"
+                    android:rating="4"
+                    android:stepSize="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:id="@+id/iv_small_selled"
+                    android:layout_marginTop="5dp"
+                    android:text="已售15"
+                    android:textColor="#fca4a4a4"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/bt_buy"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="购买"
+            android:textColor="#f9f7f7"
+            android:background="@drawable/buy_button"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#eee" />
+</LinearLayout>

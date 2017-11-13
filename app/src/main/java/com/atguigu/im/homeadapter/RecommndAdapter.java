@@ -22,7 +22,6 @@ public class RecommndAdapter extends RecyclerView.Adapter {
     private final Context mcontext;
     private final List<ChannelBean.ResultBean.KTVBean> datas;
     private ViewHolder viewHolder;
-    private int a, b, c;
 
     public RecommndAdapter(Context context, List<ChannelBean.ResultBean.KTVBean> shopBeens) {
 
@@ -39,7 +38,6 @@ public class RecommndAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         viewHolder = (ViewHolder) holder;
-
             //设置ktvc
             viewHolder.tvRecName.setText(datas.get(position).getName());
             viewHolder.recRatingBar.setRating(datas.get(position).getRating());
