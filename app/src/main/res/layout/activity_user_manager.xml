@@ -50,7 +50,7 @@
             android:paddingTop="10dp">
 
             <ImageView
-                android:id="@+id/user_head_avatar"
+                android:id="@+id/user_head_avatar1"
                 android:layout_width="60dip"
                 android:layout_height="60dip"
                 android:layout_alignParentLeft="true"
@@ -63,9 +63,9 @@
                 android:id="@+id/user_head_headphoto_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/user_head_avatar"
-                android:layout_alignBottom="@+id/user_head_avatar"
-                android:layout_alignRight="@+id/user_head_avatar"
+                android:layout_above="@+id/user_head_avatar1"
+                android:layout_alignBottom="@+id/user_head_avatar1"
+                android:layout_alignRight="@+id/user_head_avatar1"
                 android:layout_margin="3dip"
                 android:src="@drawable/em_profile_headphoto_update_icon" />
 
@@ -109,7 +109,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/te_hxid"
+                android:id="@+id/te_hxid1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/user_hxid"

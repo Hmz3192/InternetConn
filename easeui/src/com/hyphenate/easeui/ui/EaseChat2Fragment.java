@@ -129,6 +129,8 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
     private EMChatRoomChangeListener chatRoomChangeListener;
     private boolean isMessageListInited;
     protected MyItemClickListener extendMenuItemClickListener;
+    private static UserDetail userBean;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -201,7 +203,7 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
     }
 
     protected void setUpView() {
-        titleBar.setTitle(toChatUsername);
+        titleBar.setTitle("小华");
         if (chatType == EaseConstant.CHATTYPE_SINGLE) {
             // set title
            /* if(EaseUserUtils.getUserInfo(toChatUsername) != null){
@@ -211,7 +213,7 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
                 }
             }*/
             new MyThread(getActivity(), titleBar).start();
-//            titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
+            titleBar.setRightImageResource(R.drawable.ease_mm_title_remove);
         } else {
             titleBar.setRightImageResource(R.drawable.ease_to_group_details_normal);
             if (chatType == EaseConstant.CHATTYPE_GROUP) {
@@ -1164,7 +1166,6 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
         private final static String TAG = "My Thread ===> ";
         private final Context context;
         private final EaseTitleBar titleBar;
-        private UserDetail userBean;
 
         public MyThread(Context context, EaseTitleBar titleBar) {
             this.context = context;

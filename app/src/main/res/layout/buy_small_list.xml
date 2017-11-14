@@ -81,17 +81,7 @@
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
-        <Button
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/bt_buy"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:text="购买"
-            android:textColor="#f9f7f7"
-            android:background="@drawable/buy_button"
-            />
+
     </LinearLayout>
 
     <View

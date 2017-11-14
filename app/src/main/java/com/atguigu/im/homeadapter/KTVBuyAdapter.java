@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,7 +48,6 @@ public class KTVBuyAdapter extends RecyclerView.Adapter{
         private TextView ivSmallName;
         private TextView ivSmallPrice;
         private TextView ivSmallSelled;
-        private Button btBuy;
 
         /**
          * Find the Views in the layout<br />
@@ -63,7 +61,6 @@ public class KTVBuyAdapter extends RecyclerView.Adapter{
             ivSmallName = (TextView)itemView.findViewById( R.id.iv_small_name );
             ivSmallPrice = (TextView)itemView.findViewById( R.id.iv_small_price );
             ivSmallSelled = (TextView)itemView.findViewById( R.id.iv_small_selled );
-            btBuy = (Button)itemView.findViewById( R.id.bt_buy );
 
         }
 
@@ -77,7 +74,7 @@ public class KTVBuyAdapter extends RecyclerView.Adapter{
 
         public void setData(List<ChannelBean.ResultBean.KTVBean.BuyBean> data, int position) {
             ivSmallName.setText(data.get(position).getName());
-            ivSmallPrice.setText(String.valueOf(data.get(position).getPrice()));
+            ivSmallPrice.setText("￥ "+String.valueOf(data.get(position).getPrice()));
             ivSmallSelled.setText(data.get(position).getSelled());
             Glide.with(mcontext).load(Constant.LOADURL + data.get(position).getUrl()).into(ivSmallPic);
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -52,7 +51,6 @@ public class BuyAdapter extends RecyclerView.Adapter{
         private TextView ivSmallPrice;
         private RatingBar ivSmallRatingBar;
         private TextView ivSmallSelled;
-        private Button btBuy;
 
         /**
          * Find the Views in the layout<br />
@@ -68,7 +66,6 @@ public class BuyAdapter extends RecyclerView.Adapter{
             ivSmallPrice = (TextView)itemView.findViewById( R.id.iv_small_price );
             ivSmallRatingBar = (RatingBar)itemView.findViewById( R.id.iv_small_ratingBar );
             ivSmallSelled = (TextView)itemView.findViewById( R.id.iv_small_selled );
-            btBuy = (Button)itemView.findViewById( R.id.bt_buy );
 
         }
 
@@ -83,7 +80,7 @@ public class BuyAdapter extends RecyclerView.Adapter{
         public void setData(List<ChannelBean.ResultBean.FOODBean.BuyBeanX> data, int position) {
             ivSmallIntroduce.setText(data.get(position).getIntroduce());
             ivSmallName.setText(data.get(position).getName());
-            ivSmallPrice.setText(String.valueOf(data.get(position).getPrice()));
+            ivSmallPrice.setText("￥ " + String.valueOf(data.get(position).getPrice()));
             ivSmallRatingBar.setRating(data.get(position).getRating());
             ivSmallSelled.setText(data.get(position).getSelled());
             Glide.with(mcontext).load(Constant.LOADURL + data.get(position).getUrl()).into(ivSmallPic);
