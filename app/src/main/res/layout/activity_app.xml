@@ -7,11 +7,12 @@
     tools:context="com.atguigu.im.controller.activity.AppActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:background="@drawable/icon"
         android:id="@+id/cb_pick"
         android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
     <com.dk.view.patheffect.PathTextView
         android:id="@+id/path"

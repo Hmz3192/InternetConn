@@ -109,35 +109,6 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="20dp">
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:id="@+id/rg_id"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rb1"
-                    android:text="社区住户"
-
-                    />
-
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:id="@+id/rb2"
-                    android:layout_height="wrap_content"
-                    android:text="公司用户"
-
-                    />
-
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:id="@+id/rb3"
-                    android:layout_height="wrap_content"
-                    android:text="社区服务"
-
-                    />
-            </RadioGroup>
         </LinearLayout>
 
         <RelativeLayout

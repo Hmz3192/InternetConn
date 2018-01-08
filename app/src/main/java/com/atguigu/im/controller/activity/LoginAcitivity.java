@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,8 +13,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,10 +30,6 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
     private TextView tvMore;
     private EditText etLoginName;
     private EditText etLoginPwd;
-    private RadioGroup rgId;
-    private RadioButton rb1;
-    private RadioButton rb2;
-    private RadioButton rb3;
     private Button btGo;
     private Dialog mCameraDialog;
     private int choice = 1;
@@ -82,16 +75,9 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
         tvMore = (TextView)findViewById( R.id.tv_more );
         etLoginName = (EditText)findViewById( R.id.et_login_name );
         etLoginPwd = (EditText)findViewById( R.id.et_login_pwd );
-        rgId = (RadioGroup)findViewById( R.id.rg_id );
-        rb1 = (RadioButton)findViewById( R.id.rb1 );
-        rb2 = (RadioButton)findViewById( R.id.rb2 );
-        rb3 = (RadioButton)findViewById( R.id.rb3 );
         btGo = (Button)findViewById( R.id.bt_go );
 
         tvMore.setOnClickListener(this);
-        rb1.setOnClickListener( this );
-        rb2.setOnClickListener( this );
-        rb3.setOnClickListener( this );
         btGo.setOnClickListener( this );
     }
 
@@ -166,29 +152,6 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
 //        });
 
 
-        rgId.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                switch (i) {
-
-                    case R.id.rb1:
-                        choice = 1;
-                        break;
-
-                    // 会话列表页面
-                    case R.id.rb2:
-                        choice = 2;
-                        break;
-
-                    // 联系人列表页面
-                    case R.id.rb3:
-                        choice = 3;
-                        break;
-                }
-            }
-        });
-
-        rgId.check(R.id.rb1);
     }
 
     // 登录按钮的页面逻辑处理
