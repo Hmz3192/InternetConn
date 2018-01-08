@@ -19,6 +19,16 @@ public class DoorRec {
 
     private String openReson;
 
+    public String getTimeActive() {
+        return timeActive;
+    }
+
+    public void setTimeActive(String timeActive) {
+        this.timeActive = timeActive;
+    }
+
+    private String timeActive;
+
     public DoorRec(Integer id, Integer userId, String doorId, String openTime, String openKind, String openPassword, String openReson) {
         this.id = id;
         this.userId = userId;

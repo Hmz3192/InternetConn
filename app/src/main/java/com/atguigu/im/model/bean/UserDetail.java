@@ -22,6 +22,16 @@ public class UserDetail {
 
     private String email;
 
+    private String cardPic;
+
+    public String getCardPic() {
+        return cardPic;
+    }
+
+    public void setCardPic(String cardPic) {
+        this.cardPic = cardPic;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -1,7 +1,6 @@
 package com.atguigu.im.model.bean;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by ZJNU-Hmz on 2017/10/23.
@@ -20,13 +19,13 @@ public class KeyMes implements Serializable {
 
     private String doorId;
 
-    private Date addTime;
+    private String addTime;
 
     private String doorState;
 
     private String doorKind;
 
-    public KeyMes(Integer id, Integer userId, String doorName, String doorLocation, String doorId, Date addTime, String doorState, String doorKind) {
+    public KeyMes(Integer id, Integer userId, String doorName, String doorLocation, String doorId, String addTime, String doorState, String doorKind) {
         this.id = id;
         this.userId = userId;
         this.doorName = doorName;
@@ -81,11 +80,11 @@ public class KeyMes implements Serializable {
         this.doorId = doorId == null ? null : doorId.trim();
     }
 
-    public Date getAddTime() {
+    public String getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Date addTime) {
+    public void setAddTime(String addTime) {
         this.addTime = addTime;
     }
 

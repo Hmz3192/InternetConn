@@ -9,7 +9,9 @@ android {
         targetSdkVersion 26
     }
     lintOptions {
+        checkReleaseBuilds false
         disable "ResourceType"
+        abortOnError false
     }
 	sourceSets {
         main {

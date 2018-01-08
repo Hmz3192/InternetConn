@@ -9,7 +9,6 @@ import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.model.db.DoorKeyDB;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,7 +37,7 @@ import java.util.List;
             values.put(KeyInfoTable.COL_DoorLocation, user.getDoorLocation());
             values.put(KeyInfoTable.COL_DoorName, user.getDoorName());
             values.put(KeyInfoTable.COL_DoorState, user.getDoorState());
-            values.put(KeyInfoTable.COL_DoorTime, String.valueOf(user.getAddTime()));
+            values.put(KeyInfoTable.COL_DoorTime, user.getAddTime());
             values.put(KeyInfoTable.COL_Id, user.getId());
             values.put(KeyInfoTable.COL_Kind, user.getDoorKind());
 
@@ -63,7 +62,7 @@ import java.util.List;
 
                 // 封装对象
                 userInfo.setUserId(Integer.valueOf(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_HXID))));
-                userInfo.setAddTime(new Date(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorTime))));
+                userInfo.setAddTime(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorTime)));
                 userInfo.setDoorId(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorId)));
                 userInfo.setDoorKind(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_Kind)));
                 userInfo.setDoorLocation(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorLocation)));
@@ -100,7 +99,7 @@ import java.util.List;
                 userInfo.setId(Integer.valueOf(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_Id))));
                 userInfo.setUserId(Integer.valueOf(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_HXID))));
                 userInfo.setDoorId(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorId)));
-                userInfo.setAddTime((new Date(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorTime)))));
+                userInfo.setAddTime(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorTime)));
                 userInfo.setDoorKind(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_Kind)));
                 userInfo.setDoorLocation(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorLocation)));
                 userInfo.setDoorName(cursor.getString(cursor.getColumnIndex(KeyInfoTable.COL_DoorName)));

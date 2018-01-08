@@ -12,17 +12,17 @@ public class Constant {
     public static final String GROUP_ID = "group_id";// 群id
     public static final String EXIT_GROUP = "exit_group";// 退群广播
 
-    public static final String GETONEINFO = "http://101.132.112.251:8111/IntelCd/getPic";
+    public static final String GETONEINFO = "http://10.7.90.238:8111/IntelCd/getPic";
 
-    public static final String GETKETUSER = "http://101.132.112.251:8111/IntelCd/getKeyByUser";
+    public static final String GETKETUSER = "http://10.7.90.238:8111/IntelCd/getKeyByUser";
 
-    public static final String GETDOORRECORD = "http://101.132.112.251:8111/IntelCd/getDoorRecord";
+    public static final String GETDOORRECORD = "http://10.7.90.238:8111/IntelCd/getDoorRecord";
 
 
 
-    public static final String GETRECOMMEND = "http://10.7.90.214:8080/new/json/KTV.json";
+    public static final String GETRECOMMEND = "http://10.7.90.238:8111/IntelCd/new/json/KTV.json";
 
-    public static final String LOADURL = "http://10.7.90.214:8080/new/img/";
+    public static final String LOADURL = "http://10.7.90.238:8111/IntelCd/new/img/";
 
 
 }
