@@ -47,6 +47,7 @@ import com.hyphenate.easeui.controller.EaseUI;
 import com.hyphenate.easeui.domain.EaseEmojicon;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.model.EaseAtMessageHelper;
+import com.hyphenate.easeui.utils.Constants;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.easeui.widget.EaseAlertDialog;
@@ -203,7 +204,7 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
     }
 
     protected void setUpView() {
-        titleBar.setTitle("小华");
+//        titleBar.setTitle("小华");
         if (chatType == EaseConstant.CHATTYPE_SINGLE) {
             // set title
            /* if(EaseUserUtils.getUserInfo(toChatUsername) != null){
@@ -1174,7 +1175,7 @@ public class EaseChat2Fragment extends EaseBaseFragment implements EMMessageList
 
         public void run() {
             Log.d(TAG, "run");
-            String url = "http://192.168.1.104:8080/IntelCd/getPic";
+            String url = Constants.GetUserurl;
             OkHttpUtils
                     .get()
                     .url(url)

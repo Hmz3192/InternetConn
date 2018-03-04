@@ -12,6 +12,7 @@ import com.atguigu.im.R;
 import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.utils.BitmapUtils;
+import com.atguigu.im.utils.Constant;
 import com.hyphenate.chat.EMClient;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
@@ -83,7 +84,7 @@ public class UserManagerActivity extends Activity implements View.OnClickListene
     }
 
     private void initDataView(UserDetail userByHxId) {
-        Picasso.with(UserManagerActivity.this).load(userByHxId.getPicUrl()).transform(new Transformation() {
+        Picasso.with(UserManagerActivity.this).load(Constant.LOADURL + userByHxId.getPicUrl()).transform(new Transformation() {
             @Override
             public Bitmap transform(Bitmap bitmap) {
                 //先对图片进行压缩

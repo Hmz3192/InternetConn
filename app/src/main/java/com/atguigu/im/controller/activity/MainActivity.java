@@ -1,8 +1,10 @@
 package com.atguigu.im.controller.activity;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -16,7 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Display;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -27,14 +28,18 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.atguigu.im.R;
+import com.atguigu.im.bluetooth.BluetoothEventManager;
 import com.atguigu.im.controller.fragment.ChatFragment;
 import com.atguigu.im.controller.fragment.ContactListFragment;
 import com.atguigu.im.controller.fragment.KeyFragment;
 import com.atguigu.im.controller.fragment.ShopFragment;
 import com.atguigu.im.model.Model;
+import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.utils.BitmapUtils;
 import com.atguigu.im.utils.Constant;
+import com.atguigu.im.wifihelper.WifiAdmin;
+import com.atguigu.im.wifihelper.WifiApAdmin;
 import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
 import com.squareup.picasso.Picasso;
@@ -42,6 +47,9 @@ import com.squareup.picasso.Transformation;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zjnu.thinkpad.myapplication.android.CaptureActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 // 主页面
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,13 +72,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView icon;
     private String user;
     private View menu;
+    private BluetoothEventManager mBluetoothEventManager;
+    private static final int REQUEST_CODE_BLUETOOTH_ON = 1313;
+    private WifiAdmin mWifiAdmin;
+    private WifiApAdmin wifiAp;
+    private WifiManager mWifiManager;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
+        context = this;
         user = EMClient.getInstance().getCurrentUser();
         Log.e("++++++++++++++++++", user);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -99,8 +113,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         initListener();
 
+        //开启蓝牙
+        startBlueTooth();
+       /* //开启wifi
+        mWifiAdmin = new WifiAdmin(MainActivity.this) {
+            @Override
+            public void myUnregisterReceiver(BroadcastReceiver receiver) {
+                unregisterReceiver(receiver);
+            }
 
-        right.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public Intent myRegisterReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+                registerReceiver(receiver, filter);
+                return null;
+            }
+
+            @Override
+            public void onNotifyWifiConnected() {
+            }
+
+            @Override
+            public void onNotifyWifiConnectFailed() {
+            }
+        };
+        mWifiAdmin.openWifi();
+        mWifiAdmin.addNetwork(mWifiAdmin.createWifiInfo("HotSpotRobin", "123456789",
+                WifiAdmin.TYPE_WPA));
+        right.setOnTouchListener(new View.OnTouchListener()
+        {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (isDrawer) {
@@ -109,9 +149,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return false;
                 }
             }
-        });
+        });*/
 
 
+    }
+
+    // 打开WIFI
+    public void openWifi() {
+        if (mWifiAdmin != null) {
+            mWifiAdmin.openWifi();
+            return;
+        }
+        if (mWifiManager == null) {
+            mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        }
+        if (!mWifiManager.isWifiEnabled()) {
+            mWifiManager.setWifiEnabled(true);
+        }
+    }
+
+    private void startBlueTooth() {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter
+                .getDefaultAdapter();
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(this, "本机没有找到蓝牙硬件或驱动！", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        // 如果本地蓝牙没有开启，则开启
+        if (!mBluetoothAdapter.isEnabled()) {
+            // 我们通过startActivityForResult()方法发起的Intent将会在onActivityResult()回调方法中获取用户的选择，比如用户单击了Yes开启，
+            // 那么将会收到RESULT_OK的结果，
+            // 如果RESULT_CANCELED则代表用户不愿意开启蓝牙
+            Intent mIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(mIntent, 1);
+            // 用enable()方法来开启，无需询问用户(实惠无声息的开启蓝牙设备),这时就需要用到android.permission.BLUETOOTH_ADMIN权限。
+            // mBluetoothAdapter.enable();
+            // mBluetoothAdapter.disable();//关闭蓝牙
+        }
     }
 
     private void intiThree() {
@@ -120,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         textView.setText(userByHxId.getEmail());
         try {
 
-            Picasso.with(MainActivity.this).load(userByHxId.getPicUrl()).transform(new Transformation() {
+            Picasso.with(MainActivity.this).load(Constant.LOADURL + userByHxId.getPicUrl()).transform(new Transformation() {
                 @Override
                 public Bitmap transform(Bitmap bitmap) {
                     //先对图片进行压缩
@@ -167,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             @Override
                             public void onResponse(String response, int id) {
                                 userBean = JSON.parseObject(response, UserDetail.class);
-                                Log.e("++++++++++++++++++3", userBean.toString());
+                                Log.e("Saving --userBean:---", userBean.toString());
                                 // 保存自己信息到本地数据库
                                 Model.getInstance().getUserInfoDao().addAccount(userBean);
                                 intiThree();
@@ -294,10 +368,71 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 String content = data.getStringExtra(DECODED_CONTENT_KEY);
                 Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
-                Toast.makeText(MainActivity.this, "解码结果： \n" + content, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "解码结果： \n" + content, Toast.LENGTH_SHORT).show();
+                Date day=new Date();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                Log.e("contentTag", content);
+//                KeyMes parse = (KeyMes) JSON.parse(content);
+                final KeyMes keyMes = JSON.parseObject(content, KeyMes.class);
+                keyMes.setAddTime(df.format(day));
+                keyMes.setUserId(Integer.valueOf(EMClient.getInstance().getCurrentUser()));
+//                Log.e("-----------",keyMes.getDimension() + " | \n" + keyMes.getDoorKind() + " | \n" + keyMes.getDoorLocation() + " | \n");
 
+
+                Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            String url = Constant.ADDKEY;
+                            OkHttpUtils
+                                    .post()
+                                    .url(url)
+                                    .addParams("userId", String.valueOf(keyMes.getUserId()))
+                                    .addParams("doorName", keyMes.getDoorName())
+                                    .addParams("doorLocation", keyMes.getDoorLocation())
+                                    .addParams("addTime", keyMes.getAddTime())
+                                    .addParams("doorKind", keyMes.getDoorKind())
+                                    .addParams("longitude", keyMes.getLongitude())
+                                    .addParams("dimension", keyMes.getDimension())
+                                    .build()
+                                    .execute(new StringCallback() {
+                                        @Override
+                                        public void onError(okhttp3.Call call, Exception e, int id) {
+
+                                        }
+
+                                        @Override
+                                        public void onResponse(String response, int id) {
+                                            initAdapter(response,keyMes);
+                                        }
+                                    });
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
             }
         }
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "蓝牙已经开启", Toast.LENGTH_SHORT).show();
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "不允许蓝牙开启", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+    }
+
+    private void initAdapter(String response, KeyMes keyMes) {
+        Model.getInstance().getDoorKeyDao().addAccount(keyMes);
+        refresh();
+    }
+
+    private void refresh() {
+        finish();
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
 
@@ -348,6 +483,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //          钥匙包设置
         } else if (id == R.id.nav_manage) {
 
+            intent = new Intent(this, KeysManagerActivity.class);
 
         }
 

@@ -25,7 +25,6 @@ import java.util.List;
 
 
 
-        // 添加用户到数据库
         public void addAccount(KeyMes user) {
             // 获取数据库对象
             SQLiteDatabase db = mHelper.getReadableDatabase();

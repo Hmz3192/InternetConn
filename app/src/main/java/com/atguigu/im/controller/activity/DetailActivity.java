@@ -23,6 +23,7 @@ import com.atguigu.im.R;
 import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.utils.PasswordView;
+import com.hyphenate.chat.EMClient;
 
 public class DetailActivity extends Activity implements View.OnClickListener {
     private KeyMes keyMes;
@@ -55,7 +56,8 @@ public class DetailActivity extends Activity implements View.OnClickListener {
     private void initData() {
         tv_name.setText(keyMes.getDoorName());
         tv_location.setText(keyMes.getDoorLocation());
-        tv_user.setText(Model.getInstance().getUserInfoDao().getUserByHxId(Model.getInstance().getGlobalUser()).getName());
+//        Log.e("Model.getInstance().getGlobalUser()-----", Model.getInstance().getGlobalUser());
+        tv_user.setText(Model.getInstance().getUserInfoDao().getUserByHxId(EMClient.getInstance().getCurrentUser()).getName());
 
         //密码输入完成
         passwordView.setOnFinishInput(new PasswordView.OnPasswordInputFinish() {
@@ -80,8 +82,6 @@ public class DetailActivity extends Activity implements View.OnClickListener {
                 } else {
                     initWindows(time);
                 }
-
-
             }
         });
 

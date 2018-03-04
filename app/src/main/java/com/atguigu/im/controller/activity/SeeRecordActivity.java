@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -66,8 +67,8 @@ public class SeeRecordActivity extends Activity {
     }
 
     private void initData() {
-        tvRecoId.setText(keyMes.getDoorId());
-
+        tvRecoId.setText(keyMes.getDoorName());
+        Log.i("keyMes.getDoorId()-------------", keyMes.getDoorId());
         final String url = Constant.GETDOORRECORD;
 
         Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
@@ -76,7 +77,7 @@ public class SeeRecordActivity extends Activity {
                 OkHttpUtils
                         .get()
                         .url(url)
-                        .addParams("doorId", keyMes.getDoorId())
+                        .addParams("doorId", String.valueOf(keyMes.getDoorId()))
                         .build()
                         .execute(new StringCallback() {
                             @Override

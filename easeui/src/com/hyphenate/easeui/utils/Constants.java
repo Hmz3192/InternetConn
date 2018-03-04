@@ -6,6 +6,8 @@ package com.hyphenate.easeui.utils;
 
 public class Constants {
 
-    public static  String GetUserurl = "http://101.132.112.251:8111/IntelCd/getPic";
+    public static final String PreUrl = "http://192.168.1.105:8112";
+    public static final String GetUserurl = PreUrl + "/getPic";
 
+    public static final String LOADURL = PreUrl;
 }

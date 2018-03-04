@@ -59,7 +59,7 @@ public class DoorOpenDetailActivity extends Activity implements View.OnClickList
 
 
         location.setText(keyMesByDoorId.getDoorLocation());
-        reason.setText(doorRecById.get(0).getOpenReson());
+        reason.setText(doorRecById.get(0).getOpenReason());
 
     }
 

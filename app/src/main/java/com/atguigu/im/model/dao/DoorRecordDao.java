@@ -35,7 +35,7 @@ public class DoorRecordDao {
         values.put(DoorRecordTable.COL_DOORID, user.getDoorId());
         values.put(DoorRecordTable.COL_KIND, user.getOpenKind());
         values.put(DoorRecordTable.COL_PASSWORD, user.getOpenPassword());
-        values.put(DoorRecordTable.COL_RESON, user.getOpenReson());
+        values.put(DoorRecordTable.COL_RESON, user.getOpenReason());
         values.put(DoorRecordTable.COL_TIME, user.getOpenTime());
         values.put(DoorRecordTable.COL_USERID, user.getUserId());
 
@@ -59,7 +59,7 @@ public class DoorRecordDao {
             userInfo.setDoorId(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_DOORID)));
             userInfo.setOpenKind(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_KIND)));
             userInfo.setOpenPassword(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_PASSWORD)));
-            userInfo.setOpenReson(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_RESON)));
+            userInfo.setOpenReason(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_RESON)));
             userInfo.setOpenTime(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_TIME)));
             userInfo.setUserId(Integer.valueOf(cursor.getString(cursor.getColumnIndex(DoorRecordTable.COL_USERID))));
 

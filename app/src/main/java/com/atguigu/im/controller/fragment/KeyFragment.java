@@ -2,14 +2,17 @@ package com.atguigu.im.controller.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +27,7 @@ import com.atguigu.im.model.Model;
 import com.atguigu.im.model.bean.KeyMes;
 import com.atguigu.im.model.bean.UserDetail;
 import com.atguigu.im.utils.Constant;
+import com.atguigu.im.utils.Kawaii_LoadingView;
 import com.atguigu.im.utils.PasswordView;
 import com.hyphenate.chat.EMClient;
 import com.kyleduo.switchbutton.SwitchButton;
@@ -46,6 +50,8 @@ public class KeyFragment extends BaseFragment {
     private KeyAdapter.ViewHolder viewHolder;
     private UserDetail userByHxId;
     private LinearLayout ll;
+    private Kawaii_LoadingView Kawaii_LoadingView;
+    private Button close_btn;
     @Override
     public View initView() {
         View view = View.inflate(mcontext, R.layout.fragment_key, null);
@@ -129,7 +135,7 @@ public class KeyFragment extends BaseFragment {
         adapter = new KeyAdapter(mcontext, keyMesList);
         GridLayoutManager manager = new GridLayoutManager(mcontext, 1);
         recy.setAdapter(adapter);
-                                            /*设置布局管理者*/
+        /*设置布局管理者*/
         recy.setLayoutManager(manager);
     }
 
@@ -164,13 +170,13 @@ public class KeyFragment extends BaseFragment {
                 viewHolder.door_iv.setImageDrawable(getResources().getDrawable(R.drawable.home_door));
             } else if (datas.get(position).getDoorKind().equalsIgnoreCase("2")) {
                 viewHolder.door_iv.setImageDrawable(getResources().getDrawable(R.drawable.big_door));
-            }else if (datas.get(position).getDoorKind().equalsIgnoreCase("3")) {
+            } else if (datas.get(position).getDoorKind().equalsIgnoreCase("3")) {
                 viewHolder.door_iv.setImageDrawable(getResources().getDrawable(R.drawable.factory_door));
             }
 
 
             viewHolder.tv_name.setText(datas.get(position).getDoorLocation());
-            viewHolder.tv_id.setText(datas.get(position).getDoorId());
+            viewHolder.tv_id.setText(datas.get(position).getDoorName());
             viewHolder.LL_key.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -183,11 +189,15 @@ public class KeyFragment extends BaseFragment {
             //开门
             viewHolder.sb_default.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                public void onCheckedChanged(CompoundButton compoundButton,final boolean b) {
 //                Toast.makeText(mcontext, b ? "开":"关", Toast.LENGTH_SHORT).show();
+
                     if (b) {
                         initWindows();
                     }
+
+
+
                 }
             });
             //密码输入完成
@@ -198,9 +208,34 @@ public class KeyFragment extends BaseFragment {
                     WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
                     params.alpha = 1f;
                     getActivity().getWindow().setAttributes(params);
-                    Toast.makeText(mcontext, passwordView.getStrPassword()+"=="+userByHxId.getPassword(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mcontext, passwordView.getStrPassword() + "==" + userByHxId.getPassword(), Toast.LENGTH_SHORT).show();
                     if (passwordView.getStrPassword().equalsIgnoreCase(userByHxId.getPassword())) {
                         Toast.makeText(mcontext, "开门成功", Toast.LENGTH_SHORT).show();
+                        LayoutInflater layoutInflater = LayoutInflater.from(mcontext); // 创建视图容器并设置上下文
+                        final View view1 = layoutInflater.inflate(R.layout.blue_diago, null);
+                        Kawaii_LoadingView = view1.findViewById(R.id.Kawaii_LoadingView);
+                        close_btn = view1.findViewById(R.id.close_btn);
+                        Kawaii_LoadingView.startMoving();
+                        final AlertDialog alertDialog;
+                        alertDialog = new AlertDialog.Builder(mcontext).setView(view1)
+                                .show();
+                        new Thread(){
+                            public void run(){
+                                try {
+                                    sleep(3000);
+                                    alertDialog.dismiss();
+                                    Toast.makeText(mcontext, "开门成功", Toast.LENGTH_SHORT).show();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }.start();
+                        close_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                alertDialog.dismiss();
+                            }
+                        });
                     } else {
                         Toast.makeText(mcontext, "密码不对", Toast.LENGTH_SHORT).show();
 //                        viewHolder.sb_default.setChecked(false);
@@ -258,6 +293,7 @@ public class KeyFragment extends BaseFragment {
             });
         }
 
+
         @Override
         public int getItemCount() {
             return datas.size();
@@ -268,6 +304,7 @@ public class KeyFragment extends BaseFragment {
             private LinearLayout LL_key;
             private SwitchButton sb_default;
             private ImageView door_iv;
+
             public ViewHolder(View itemView) {
                 super(itemView);
                 initView(itemView);

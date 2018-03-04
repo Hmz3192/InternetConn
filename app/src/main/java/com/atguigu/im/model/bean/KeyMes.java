@@ -25,7 +25,28 @@ public class KeyMes implements Serializable {
 
     private String doorKind;
 
-    public KeyMes(Integer id, Integer userId, String doorName, String doorLocation, String doorId, String addTime, String doorState, String doorKind) {
+    private String longitude;
+    private String dimension;
+
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
+    }
+
+    public KeyMes(Integer id, Integer userId, String doorName, String doorLocation, String doorId, String addTime, String doorState, String doorKind, String longitude, String dimension) {
+
         this.id = id;
         this.userId = userId;
         this.doorName = doorName;
@@ -34,6 +55,8 @@ public class KeyMes implements Serializable {
         this.addTime = addTime;
         this.doorState = doorState;
         this.doorKind = doorKind;
+        this.longitude = longitude;
+        this.dimension = dimension;
     }
 
     public KeyMes() {

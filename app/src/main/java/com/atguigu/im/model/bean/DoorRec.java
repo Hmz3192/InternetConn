@@ -17,7 +17,7 @@ public class DoorRec {
 
     private String openPassword;
 
-    private String openReson;
+    private String openReason;
 
     public String getTimeActive() {
         return timeActive;
@@ -29,15 +29,6 @@ public class DoorRec {
 
     private String timeActive;
 
-    public DoorRec(Integer id, Integer userId, String doorId, String openTime, String openKind, String openPassword, String openReson) {
-        this.id = id;
-        this.userId = userId;
-        this.doorId = doorId;
-        this.openTime = openTime;
-        this.openKind = openKind;
-        this.openPassword = openPassword;
-        this.openReson = openReson;
-    }
 
     public DoorRec() {
         super();
@@ -91,12 +82,23 @@ public class DoorRec {
         this.openPassword = openPassword == null ? null : openPassword.trim();
     }
 
-    public String getOpenReson() {
-        return openReson;
+    public String getOpenReason() {
+        return openReason;
     }
 
-    public void setOpenReson(String openReson) {
-        this.openReson = openReson == null ? null : openReson.trim();
+    public void setOpenReason(String openReason) {
+        this.openReason = openReason;
     }
 
+    public DoorRec(Integer id, Integer userId, String doorId, String openTime, String openKind, String openPassword, String openReason, String timeActive) {
+
+        this.id = id;
+        this.userId = userId;
+        this.doorId = doorId;
+        this.openTime = openTime;
+        this.openKind = openKind;
+        this.openPassword = openPassword;
+        this.openReason = openReason;
+        this.timeActive = timeActive;
+    }
 }

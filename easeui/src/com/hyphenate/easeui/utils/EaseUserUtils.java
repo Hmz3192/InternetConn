@@ -129,7 +129,7 @@ public class EaseUserUtils {
                             .skipMemoryCache( true )//跳过内存缓存
                             .into(imageView);*/
                     Picasso.with(context)
-                            .load(userBean.getPicUrl())
+                            .load(Constants.LOADURL + userBean.getPicUrl())
 //                            .networkPolicy(NetworkPolicy.NO_CACHE)
 //                            .memoryPolicy(MemoryPolicy.NO_CACHE)//不加载缓存
                             .into(imageView);
