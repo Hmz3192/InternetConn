@@ -10,6 +10,11 @@ import java.util.List;
 public class ChannelBean implements Serializable{
 
 
+    /**
+     * code : 200
+     * msg : 请求成功
+     * result : {"banner_info":[{"image":"/new/img/act/z2.png","option":3,"type":0},{"image":"/new/img/act/z4.png","option":2,"type":0},{"image":"/new/img/act/z3.png","option":1,"type":0}],"channel_info":[{"channel_name":"美食","image":"/new/img/channel/c1.png","value":{"channel_id":"8"}},{"channel_name":"购物","image":"/new/img/channel/c2.png","value":{"channel_id":"4"}},{"channel_name":"玩乐","image":"/new/img/channel/c3.png","value":{"channel_id":"3"}}],"KTV":[{"name":"SingYoung 复合式KTV","rating":5,"price":"43元起","length":55,"location":"世贸中心5楼","url":"/new/img/ktv/k1.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k3.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"琴潮量贩KTV","rating":5,"price":"63元起","length":30,"location":"金茂大厦5层","url":"/new/img/ktv/k2.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k3.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"蓝巨星量贩KTV","rating":5,"price":"16元起","length":411,"location":"金茂大厦5层","url":"/new/img/ktv/k3.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"凯乐迪量贩KTV","rating":5,"price":"38元起","length":100,"location":"金茂大厦4层","url":"/new/img/ktv/k4.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"麦浪时尚KTV","rating":5,"price":"43元起","length":9,"location":"世贸中心5楼","url":"/new/img/ktv/k5.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k4.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"M8量贩KTV","rating":5,"price":"63元起","length":1,"location":"金茂大厦5层","url":"/new/img/ktv/k6.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k4.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"牧歌量贩KTV","rating":5,"price":"16元起","length":200,"location":"金茂大厦5层","url":"/new/img/ktv/k7.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"曼巴会所","rating":5,"price":"38元起","length":100,"location":"金茂大厦4层","url":"/new/img/ktv/k8.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"爱一起KTV","rating":5,"price":"38元起","length":100,"location":"金茂大厦4层","url":"/new/img/ktv/k9.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"嘉华KTV","rating":5,"price":"38元起","length":1124,"location":"金茂大厦4层","url":"/new/img/ktv/k10.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"普乐迪","rating":5,"price":"38元起","length":1004,"location":"金茂大厦4层","url":"/new/img/ktv/k11.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"新乐迪","rating":5,"price":"38元起","length":105,"location":"金茂大厦4层","url":"/new/img/ktv/k12.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"歌尚KTV","rating":5,"price":"38元起","length":4,"location":"金茂大厦4层","url":"/new/img/ktv/k13.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"简秀爱KTV","rating":5,"price":"38元起","length":87,"location":"金茂大厦4层","url":"/new/img/ktv/k14.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"酷K量贩KTV","rating":5,"price":"38元起","length":177,"location":"金茂大厦4层","url":"/new/img/ktv/k15.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"盛世唐朝量贩KTV","rating":5,"price":"38元起","length":177,"location":"金茂大厦4层","url":"/new/img/ktv/k16.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"百乐汇时尚主题量贩KTV","rating":5,"price":"38元起","length":197,"location":"金茂大厦4层","url":"/new/img/ktv/k18.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"金典量贩KTV","rating":5,"price":"38元起","length":155,"location":"金茂大厦4层","url":"/new/img/ktv/k19.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"V-SHOW（唯秀）主题KTV","rating":5,"price":"38元起","length":45,"location":"金茂大厦4层","url":"/new/img/ktv/k20.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"纯歌派对量贩KTV","rating":5,"price":"38元起","length":67,"location":"金茂大厦4层","url":"/new/img/ktv/k20.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"百渡纯K","rating":5,"price":"38元起","length":1113,"location":"金茂大厦4层","url":"/new/img/ktv/k21.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"阿修罗量贩KTV","rating":5,"price":"38元起","length":1456,"location":"金茂大厦4层","url":"/new/img/ktv/k22.png","number":"100人以上消费","introduce":"营业时间：周一至周日","buy":[{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k1.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]}],"FOOD":[{"name":"布恬私家蛋糕","rating":5,"price":"20元/人","length":"距离55m","location":"婺城区人民东路118号","url":"/new/img/food/f1.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"美食甜点","buy":[{"url":"/new/img/food/f1/ff1.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f1/ff2.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f1/ff3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"贝克汉堡","rating":5,"price":"15元/人","length":"距离55m","location":"婺城区浙江师范大学北门","url":"/new/img/food/f3.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"快餐饮食","buy":[{"url":"/new/img/food/f2/f2.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f2/f2.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f2/f2.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"Apple tree 树上甜点蛋糕店","rating":5,"price":"14元/人","length":"距离55m","location":"婺城区同心路172号","url":"/new/img/food/f4.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"美食甜点","buy":[{"url":"/new/img/food/f1/ff1.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f1/ff2.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f1/ff3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"鸭血粉丝","rating":5,"price":"10元/人","length":"距离792m","location":"婺城区骆家塘畅达街105号","url":"/new/img/food/f2.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"特色小吃","buy":[{"url":"/new/img/food/f3/f1.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f3/f1.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f3/f2.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"小布丁蛋糕","rating":5,"price":"20元/人","length":"距离55m","location":"婺城区人民东路118号","url":"/new/img/food/f1.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"美食甜点","buy":[{"url":"/new/img/food/f4/f2.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f1.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"光影汉堡店","rating":5,"price":"15元/人","length":"距离55m","location":"婺城区浙江师范大学北门","url":"/new/img/food/f3.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"快餐饮食","buy":[{"url":"/new/img/food/f4/f2.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f1.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"Apple tree 树上甜点","rating":5,"price":"14元/人","length":"距离55m","location":"婺城区同心路172号","url":"/new/img/food/f4.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"美食甜点","buy":[{"url":"/new/img/food/f4/f2.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f1.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"name":"鸭血粉丝","rating":5,"price":"10元/人","length":"距离792m","location":"婺城区骆家塘畅达街105号","url":"/new/img/food/f2.png","number":"100人以上消费","introduce":"营业时间：周一至周日","kind":"特色小吃","buy":[{"url":"/new/img/food/f4/f2.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f1.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f4/f3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}],"comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]}],"CLOSE":[{"product_id":6633,"name":"【画影】现货  小狐狸羽织 ","rating":5,"price":132,"url":"/new/img/close/c3.jpg","number":"100人以上消费","introduce":"红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~","kind":"羽绒外套","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3831,"name":"【喵鹿酱】超萌 假透肉 拼接 踩脚过膝打底袜 裤袜-加绒保暖","rating":5,"price":54,"url":"/new/img/close/c2.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"打底裤","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":6969,"name":"【涉川原创】周边小物 手感超好超萌的兔毛小兔纸包挂/毛绒玩偶","rating":5,"price":54,"url":"/new/img/close/c4.jpg","number":"兔兔刚到手会有浮毛，多拍拍抖抖吹吹揉揉就好啦(","introduce":"衣服材料是。。。。。","kind":"毛绒手套","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3845,"name":"预售 【世界线的彼岸】炸鸡块 颜文字 羊毛呢贝雷帽 圆润烧饼帽 保暖","rating":1,"price":49,"url":"/new/img/close/c1.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"毛绒帽子","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":6633,"name":"【画影】现货  小狐狸羽织 ","rating":5,"price":132,"url":"/new/img/close/c3.jpg","number":"100人以上消费","introduce":"红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~","kind":"羽绒外套","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3831,"name":"【喵鹿酱】超萌 假透肉 拼接 踩脚过膝打底袜 裤袜-加绒保暖","rating":5,"price":54,"url":"/new/img/close/c2.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"打底裤","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":6969,"name":"【涉川原创】周边小物 手感超好超萌的兔毛小兔纸包挂/毛绒玩偶","rating":5,"price":54,"url":"/new/img/close/c4.jpg","number":"兔兔刚到手会有浮毛，多拍拍抖抖吹吹揉揉就好啦(","introduce":"衣服材料是。。。。。","kind":"毛绒手套","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]},{"product_id":3845,"name":"预售 【世界线的彼岸】炸鸡块 颜文字 羊毛呢贝雷帽 圆润烧饼帽 保暖","rating":1,"price":49,"url":"/new/img/close/c1.jpg","number":"100人以上消费","introduce":"衣服材料是。。。。。","kind":"毛绒帽子","comment":[{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]}]}
+     */
 
     private int code;
     private String msg;
@@ -88,7 +93,7 @@ public class ChannelBean implements Serializable{
 
         public static class BannerInfoBean {
             /**
-             * image : act/z2.png
+             * image : /new/img/act/z2.png
              * option : 3
              * type : 0
              */
@@ -125,7 +130,7 @@ public class ChannelBean implements Serializable{
         public static class ChannelInfoBean {
             /**
              * channel_name : 美食
-             * image : channel/c1.png
+             * image : /new/img/channel/c1.png
              * value : {"channel_id":"8"}
              */
 
@@ -179,19 +184,19 @@ public class ChannelBean implements Serializable{
              * name : SingYoung 复合式KTV
              * rating : 5
              * price : 43元起
-             * length : 距离55m
+             * length : 55
              * location : 世贸中心5楼
-             * url : ktv/k1.png
+             * url : /new/img/ktv/k1.png
              * number : 100人以上消费
              * introduce : 营业时间：周一至周日
-             * buy : [{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"科技园路.","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}]
-             * comment : [{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"}]
+             * buy : [{"url":"/new/img/ktv/k2.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"},{"url":"/new/img/ktv/k3.png","price":128,"name":"周一至周日欢唱3选1","selled":"已售100"}]
+             * comment : [{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]
              */
 
             private String name;
             private int rating;
             private String price;
-            private String length;
+            private int length;
             private String location;
             private String url;
             private String number;
@@ -223,11 +228,11 @@ public class ChannelBean implements Serializable{
                 this.price = price;
             }
 
-            public String getLength() {
+            public int getLength() {
                 return length;
             }
 
-            public void setLength(String length) {
+            public void setLength(int length) {
                 this.length = length;
             }
 
@@ -281,7 +286,7 @@ public class ChannelBean implements Serializable{
 
             public static class BuyBean {
                 /**
-                 * url : 科技园路.
+                 * url : /new/img/ktv/k2.png
                  * price : 128
                  * name : 周一至周日欢唱3选1
                  * selled : 已售100
@@ -327,15 +332,13 @@ public class ChannelBean implements Serializable{
 
             public static class CommentBean {
                 /**
-                 * url : 科技园路.
+                 * url : /img/1.jpg
                  * name : 小华
-                 * date : 2017/07/13
                  * neirong : 环境很好，很干净，很喜欢
                  */
 
                 private String url;
                 private String name;
-                private String date;
                 private String neirong;
 
                 public String getUrl() {
@@ -352,14 +355,6 @@ public class ChannelBean implements Serializable{
 
                 public void setName(String name) {
                     this.name = name;
-                }
-
-                public String getDate() {
-                    return date;
-                }
-
-                public void setDate(String date) {
-                    this.date = date;
                 }
 
                 public String getNeirong() {
@@ -379,12 +374,12 @@ public class ChannelBean implements Serializable{
              * price : 20元/人
              * length : 距离55m
              * location : 婺城区人民东路118号
-             * url : food/f1.png
+             * url : /new/img/food/f1.png
              * number : 100人以上消费
              * introduce : 营业时间：周一至周日
              * kind : 美食甜点
-             * buy : [{"url":"food/f1/ff1.png","price":98,"name":"甜品 3 选 1","introduce":"抹茶红豆，焦糖巧克力，蓝莓千层","rating":4,"selled":"已售100"},{"url":"food/f1/ff2.png","price":98,"name":"4寸千层蛋糕","introduce":"千层蛋糕，4英寸，圆形","rating":4,"selled":"已售100"},{"url":"food/f1/ff3.png","price":98,"name":"6寸淡奶油水果千层","introduce":"蓝莓，红豆，哈密瓜，火龙果，百香果，焦糖","rating":4,"selled":"已售12"}]
-             * comment : [{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
+             * buy : [{"url":"/new/img/food/f1/ff1.png","price":98,"name":"8英寸慕斯蛋糕 1 个","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f1/ff2.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"},{"url":"/new/img/food/f1/ff3.png","price":128,"name":"布恬私家蛋糕","introduce":"慕斯蛋糕1个，约8英寸，正方形","rating":4,"selled":"已售100"}]
+             * comment : [{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]
              */
 
             private String name;
@@ -489,10 +484,10 @@ public class ChannelBean implements Serializable{
 
             public static class BuyBeanX {
                 /**
-                 * url : food/f1/ff1.png
+                 * url : /new/img/food/f1/ff1.png
                  * price : 98
-                 * name : 甜品 3 选 1
-                 * introduce : 抹茶红豆，焦糖巧克力，蓝莓千层
+                 * name : 8英寸慕斯蛋糕 1 个
+                 * introduce : 慕斯蛋糕1个，约8英寸，正方形
                  * rating : 4
                  * selled : 已售100
                  */
@@ -555,15 +550,13 @@ public class ChannelBean implements Serializable{
 
             public static class CommentBeanX {
                 /**
-                 * url : 科技园路.
+                 * url : /img/1.jpg
                  * name : 小华
-                 * date : 2017/07/13
                  * neirong : 环境很好，很干净，很喜欢
                  */
 
                 private String url;
                 private String name;
-                private String date;
                 private String neirong;
 
                 public String getUrl() {
@@ -582,14 +575,6 @@ public class ChannelBean implements Serializable{
                     this.name = name;
                 }
 
-                public String getDate() {
-                    return date;
-                }
-
-                public void setDate(String date) {
-                    this.date = date;
-                }
-
                 public String getNeirong() {
                     return neirong;
                 }
@@ -605,18 +590,18 @@ public class ChannelBean implements Serializable{
              * product_id : 6633
              * name : 【画影】现货  小狐狸羽织
              * rating : 5
-             * price : 132
-             * url : close/c3.jpg
+             * price : 132.0
+             * url : /new/img/close/c3.jpg
              * number : 100人以上消费
              * introduce : 红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~红黑款是现货哦·~现货不配送发带~~ 重要的事情说三次~
              * kind : 羽绒外套
-             * comment : [{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","name":"小华","date":"2017/07/13","neirong":"环境很好，很干净，很喜欢"},{"url":"科技园路.","date":"2017/07/13","name":"小华","neirong":"环境很好，很干净，很喜欢"}]
+             * comment : [{"url":"/img/1.jpg","name":"小华","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/2.jpg","name":"小明","neirong":"环境很好，很干净，很喜欢"},{"url":"/img/3.jpg","name":"小志","neirong":"环境很好，很干净，很喜欢"}]
              */
 
             private int product_id;
             private String name;
             private int rating;
-            private int price;
+            private double price;
             private String url;
             private String number;
             private String introduce;
@@ -647,11 +632,11 @@ public class ChannelBean implements Serializable{
                 this.rating = rating;
             }
 
-            public int getPrice() {
+            public double getPrice() {
                 return price;
             }
 
-            public void setPrice(int price) {
+            public void setPrice(double price) {
                 this.price = price;
             }
 
@@ -697,14 +682,12 @@ public class ChannelBean implements Serializable{
 
             public static class CommentBeanXX {
                 /**
-                 * url : 科技园路.
-                 * date : 2017/07/13
+                 * url : /img/1.jpg
                  * name : 小华
                  * neirong : 环境很好，很干净，很喜欢
                  */
 
                 private String url;
-                private String date;
                 private String name;
                 private String neirong;
 
@@ -714,14 +697,6 @@ public class ChannelBean implements Serializable{
 
                 public void setUrl(String url) {
                     this.url = url;
-                }
-
-                public String getDate() {
-                    return date;
-                }
-
-                public void setDate(String date) {
-                    this.date = date;
                 }
 
                 public String getName() {

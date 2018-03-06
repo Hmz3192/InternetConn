@@ -208,7 +208,7 @@ public class KeyFragment extends BaseFragment {
                     WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
                     params.alpha = 1f;
                     getActivity().getWindow().setAttributes(params);
-                    Toast.makeText(mcontext, passwordView.getStrPassword() + "==" + userByHxId.getPassword(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mcontext, passwordView.getStrPassword() + "==" + userByHxId.getPassword(), Toast.LENGTH_SHORT).show();
                     if (passwordView.getStrPassword().equalsIgnoreCase(userByHxId.getPassword())) {
                         Toast.makeText(mcontext, "开门成功", Toast.LENGTH_SHORT).show();
                         LayoutInflater layoutInflater = LayoutInflater.from(mcontext); // 创建视图容器并设置上下文
@@ -224,7 +224,6 @@ public class KeyFragment extends BaseFragment {
                                 try {
                                     sleep(3000);
                                     alertDialog.dismiss();
-                                    Toast.makeText(mcontext, "开门成功", Toast.LENGTH_SHORT).show();
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }

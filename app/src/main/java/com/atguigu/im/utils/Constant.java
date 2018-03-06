@@ -13,7 +13,7 @@ public class Constant {
     public static final String EXIT_GROUP = "exit_group";// 退群广播
 
 
-    public static final String PREURL = "http://192.168.1.105:8112";
+    public static final String PREURL = "http://101.201.234.133:2111";
 
 
     public static final String GETONEINFO = PREURL + "/getPic";

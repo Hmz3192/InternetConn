@@ -185,7 +185,7 @@ public class LoginAcitivity extends Activity implements View.OnClickListener {
                             @Override
                             public void run() {
                                 // 提示登录成功
-                                Toast.makeText(LoginAcitivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(LoginAcitivity.this, "登录成功", Toast.LENGTH_SHORT).show();
 
                                 // 跳转到主页面
                                 Intent intent = new Intent(LoginAcitivity.this, MainActivity.class);

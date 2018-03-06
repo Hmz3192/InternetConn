@@ -10,7 +10,6 @@
         <item
             android:id="@+id/nav_gallery"
             android:title="账号管理" />
-        <!--android:icon="@drawable/ic_menu_gallery"-->
 
         <item
             android:id="@+id/nav_slideshow"

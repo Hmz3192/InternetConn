@@ -16,14 +16,18 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.atguigu.im.R;
+import com.atguigu.im.controller.activity.SearchActivity;
 import com.atguigu.im.homeadapter.ChannelBean;
 import com.atguigu.im.homeadapter.HomeFragmentAdapter;
 import com.atguigu.im.model.Model;
 import com.atguigu.im.utils.Constant;
+import com.atguigu.im.utils.SortUtil;
 import com.atguigu.im.utils.SpUtils;
 import com.hyphenate.easeui.ui.EaseBaiduMapActivity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import java.util.List;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static com.atguigu.im.utils.SpUtils.Location;
@@ -105,7 +109,11 @@ public class ShopFragment extends BaseFragment {
         ChannelBean resultBeanData = JSON.parseObject(response, ChannelBean.class);
         resultBean = resultBeanData.getResult();
         if (resultBean != null) {
+            List<ChannelBean.ResultBean.KTVBean> ktv = resultBean.getKTV();
             //有数据
+            SortUtil.SortList<ChannelBean.ResultBean.KTVBean> ktvBeanSortList = new SortUtil.SortList<>();
+            ktvBeanSortList.Sort(ktv, "getLength", null);
+            resultBean.setKTV(ktv);
             //设置适配器
             adapter = new HomeFragmentAdapter(mcontext, resultBean);
             rvHome.setAdapter(adapter);
@@ -133,7 +141,7 @@ public class ShopFragment extends BaseFragment {
                         Toast.makeText(mcontext, "请重新输入", Toast.LENGTH_SHORT).show();
                         return false;
                     }
-//                    onSearch(tv_search_home.getText().toString());
+                    onSearch(et_search.getText().toString());
 
                 }
                 return false;
@@ -148,6 +156,12 @@ public class ShopFragment extends BaseFragment {
                 startActivityForResult(intent1, REQUEST_CODE_MAP);
             }
         });
+    }
+
+    private void onSearch(String s) {
+        Intent intent = new Intent(mcontext, SearchActivity.class);
+        intent.putExtra("input", s);
+        startActivity(intent);
     }
 
 

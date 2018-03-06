@@ -378,7 +378,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 keyMes.setUserId(Integer.valueOf(EMClient.getInstance().getCurrentUser()));
 //                Log.e("-----------",keyMes.getDimension() + " | \n" + keyMes.getDoorKind() + " | \n" + keyMes.getDoorLocation() + " | \n");
 
-
+                /*{
+                    "doorName": "Hb-Wh-Ja-100305",
+                        "doorLocation": "地球中国湖北省武汉市江岸区201号301门",
+                        "doorKind": 3,
+                        "longitude": 2233.4514,
+                        "dimension": 53456.2356
+                }*/
                 Model.getInstance().getGlobalThreadPool().execute(new Runnable() {
                     @Override
                     public void run() {
@@ -430,9 +436,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void refresh() {
-        finish();
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 
